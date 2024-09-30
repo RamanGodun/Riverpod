@@ -12,14 +12,18 @@ class BasicPage extends ConsumerWidget {
     //
     _showDialogWhenCounterIsEqual3(ref, context);
 
-    final value = ref.watch(counterProvider);
+    // final value = ref.watch(counterProvider);
+    final value = ref.watch(clickedTimesProvider);
 
     return Scaffold(
       appBar: AppBar(
         title: TextWidgets.bodyText(context, 'StateProvider'),
       ),
       body: Center(
-        child: TextWidgets.headlineText(context, '$value'),
+        child: TextWidgets.headlineText(
+          context,
+          value, //was '$value'
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

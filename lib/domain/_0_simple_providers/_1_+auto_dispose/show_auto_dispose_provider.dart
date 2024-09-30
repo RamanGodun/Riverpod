@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_project/data/helpers.dart';
 
-import '../gen_+auto_dispose_and_family /gen_auto_dispose_provider.dart';
+import '../+code_generation/gen_auto_dispose_provider.dart';
 // import 'auto_dispose_provider.dart';
 
 class AutoDisposePage extends ConsumerWidget {

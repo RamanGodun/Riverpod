@@ -6,19 +6,19 @@ part of 'basic_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$ageHash() => r'5a39b18590a6fa29296d58a6bfa797fcea4282ac';
+String _$clickedTimesHash() => r'468633a940ad265ac3f5950bf70ca5020dd06be2';
 
-/// See also [age].
-@ProviderFor(age)
-final ageProvider = Provider<String>.internal(
-  age,
-  name: r'ageProvider',
+/// See also [clickedTimes].
+@ProviderFor(clickedTimes)
+final clickedTimesProvider = Provider<String>.internal(
+  clickedTimes,
+  name: r'clickedTimesProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$ageHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$clickedTimesHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef AgeRef = ProviderRef<String>;
+typedef ClickedTimesRef = ProviderRef<String>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

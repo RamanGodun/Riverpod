@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'domain/state_provider/auto_dispose/show_auto_dispose_provider.dart';
+import 'domain/state_provider/_2_+auto_dispose/show_auto_dispose_provider.dart';
 import 'domain/state_provider/auto_dispose_family/show_auto_dispose_family_provider.dart';
-import 'domain/state_provider/basic/show_basic_provider.dart';
+import 'domain/state_provider/_1_basic/show_basic_provider.dart';
 import 'domain/state_provider/family/show_family_provider.dart';
 import 'widgets/custom_button.dart';
 
