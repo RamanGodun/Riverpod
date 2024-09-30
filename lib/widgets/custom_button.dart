@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:riverpod_project/widgets/text_widgets.dart';
+
+import '../data/helpers.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -13,16 +16,9 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5.0),
-      child: FilledButton(
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (_) => child),
-          );
-        },
-        child: Text(
-          title,
-          style: const TextStyle(fontSize: 18),
-        ),
+      child: OutlinedButton(
+        onPressed: () => Helpers.pushTo(context, child),
+        child: TextWidgets.buttonText(context, title),
       ),
     );
   }

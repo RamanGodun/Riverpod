@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../data/helpers.dart';
 import '../gen_+auto_dispose_and_family /gen_family_provider.dart';
 // import 'family_provider.dart';
 
@@ -11,7 +12,7 @@ class FamilyPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final helloRoman = ref.watch(familyProvider(customName: 'Roman'));
     final helloGodun = ref.watch(familyProvider(customName: 'Godun'));
-    final theme = Theme.of(context);
+    final theme = Helpers.getTheme(context);
     final textTheme = theme.textTheme;
 
     return Scaffold(
