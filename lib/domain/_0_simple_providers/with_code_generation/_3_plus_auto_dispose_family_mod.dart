@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'gen_auto_dispose_family_provider.g.dart';
+part '_3_plus_auto_dispose_family_mod.g.dart';
 
 @riverpod
 String autoDisposeFamily(AutoDisposeFamilyRef ref,

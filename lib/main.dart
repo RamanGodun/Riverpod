@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'domain/state_provider/_2_+auto_dispose/show_auto_dispose_provider.dart';
-import 'domain/state_provider/auto_dispose_family/show_auto_dispose_family_provider.dart';
-import 'domain/state_provider/_1_basic/show_basic_provider.dart';
-import 'domain/state_provider/family/show_family_provider.dart';
+import 'domain/state_provider/plus_auto_dispose_mod/auto_dispose_provider_presentation.dart';
+import 'domain/state_provider/plus_auto_dispose_family_mod/show_auto_dispose_family_provider.dart';
+import 'domain/state_provider/basic/basic_provider_presentation.dart';
+import 'domain/state_provider/plus_family_mod/family_provider_presentation.dart';
 import 'widgets/custom_button.dart';
 
 void main() {

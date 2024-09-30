@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // rivp => autocompletion
-part 'auto_dispose_provider.g.dart';
+part '_auto_dispose_provider.g.dart';
 
 final autoDisposedCounterProvider = StateProvider.autoDispose<int>((ref) {
   ref.onDispose(() {

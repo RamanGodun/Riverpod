@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'gen_auto_dispose_family_provider.dart';
+part of '_2_plus_family_mod_gen.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$autoDisposeFamilyHash() => r'402f5fef27ca28af027446767ec85b120b9267ac';
+String _$familyHash() => r'c3bf31864cced6214007625425981cc8a822dffa';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,27 +29,27 @@ class _SystemHash {
   }
 }
 
-/// See also [autoDisposeFamily].
-@ProviderFor(autoDisposeFamily)
-const autoDisposeFamilyProvider = AutoDisposeFamilyFamily();
+/// See also [family].
+@ProviderFor(family)
+const familyProvider = FamilyFamily();
 
-/// See also [autoDisposeFamily].
-class AutoDisposeFamilyFamily extends Family<String> {
-  /// See also [autoDisposeFamily].
-  const AutoDisposeFamilyFamily();
+/// See also [family].
+class FamilyFamily extends Family<String> {
+  /// See also [family].
+  const FamilyFamily();
 
-  /// See also [autoDisposeFamily].
-  AutoDisposeFamilyProvider call({
+  /// See also [family].
+  FamilyProvider call({
     required String customName,
   }) {
-    return AutoDisposeFamilyProvider(
+    return FamilyProvider(
       customName: customName,
     );
   }
 
   @override
-  AutoDisposeFamilyProvider getProviderOverride(
-    covariant AutoDisposeFamilyProvider provider,
+  FamilyProvider getProviderOverride(
+    covariant FamilyProvider provider,
   ) {
     return call(
       customName: provider.customName,
@@ -68,32 +68,31 @@ class AutoDisposeFamilyFamily extends Family<String> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'autoDisposeFamilyProvider';
+  String? get name => r'familyProvider';
 }
 
-/// See also [autoDisposeFamily].
-class AutoDisposeFamilyProvider extends AutoDisposeProvider<String> {
-  /// See also [autoDisposeFamily].
-  AutoDisposeFamilyProvider({
+/// See also [family].
+class FamilyProvider extends Provider<String> {
+  /// See also [family].
+  FamilyProvider({
     required String customName,
   }) : this._internal(
-          (ref) => autoDisposeFamily(
-            ref as AutoDisposeFamilyRef,
+          (ref) => family(
+            ref as FamilyRef,
             customName: customName,
           ),
-          from: autoDisposeFamilyProvider,
-          name: r'autoDisposeFamilyProvider',
+          from: familyProvider,
+          name: r'familyProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$autoDisposeFamilyHash,
-          dependencies: AutoDisposeFamilyFamily._dependencies,
-          allTransitiveDependencies:
-              AutoDisposeFamilyFamily._allTransitiveDependencies,
+                  : _$familyHash,
+          dependencies: FamilyFamily._dependencies,
+          allTransitiveDependencies: FamilyFamily._allTransitiveDependencies,
           customName: customName,
         );
 
-  AutoDisposeFamilyProvider._internal(
+  FamilyProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -107,12 +106,12 @@ class AutoDisposeFamilyProvider extends AutoDisposeProvider<String> {
 
   @override
   Override overrideWith(
-    String Function(AutoDisposeFamilyRef provider) create,
+    String Function(FamilyRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: AutoDisposeFamilyProvider._internal(
-        (ref) => create(ref as AutoDisposeFamilyRef),
+      override: FamilyProvider._internal(
+        (ref) => create(ref as FamilyRef),
         from: from,
         name: null,
         dependencies: null,
@@ -124,13 +123,13 @@ class AutoDisposeFamilyProvider extends AutoDisposeProvider<String> {
   }
 
   @override
-  AutoDisposeProviderElement<String> createElement() {
-    return _AutoDisposeFamilyProviderElement(this);
+  ProviderElement<String> createElement() {
+    return _FamilyProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is AutoDisposeFamilyProvider && other.customName == customName;
+    return other is FamilyProvider && other.customName == customName;
   }
 
   @override
@@ -142,17 +141,16 @@ class AutoDisposeFamilyProvider extends AutoDisposeProvider<String> {
   }
 }
 
-mixin AutoDisposeFamilyRef on AutoDisposeProviderRef<String> {
+mixin FamilyRef on ProviderRef<String> {
   /// The parameter `customName` of this provider.
   String get customName;
 }
 
-class _AutoDisposeFamilyProviderElement
-    extends AutoDisposeProviderElement<String> with AutoDisposeFamilyRef {
-  _AutoDisposeFamilyProviderElement(super.provider);
+class _FamilyProviderElement extends ProviderElement<String> with FamilyRef {
+  _FamilyProviderElement(super.provider);
 
   @override
-  String get customName => (origin as AutoDisposeFamilyProvider).customName;
+  String get customName => (origin as FamilyProvider).customName;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

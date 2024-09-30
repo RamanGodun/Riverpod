@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../widgets/text_widgets.dart';
-import 'basic_provider.dart';
+import '_auto_dispose_provider.dart';
 
-class BasicPage extends ConsumerWidget {
-  const BasicPage({super.key});
+class AutoDisposePage extends ConsumerWidget {
+  const AutoDisposePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -13,11 +13,11 @@ class BasicPage extends ConsumerWidget {
     _showDialogWhenCounterIsEqual3(ref, context);
 
     // final value = ref.watch(counterProvider);
-    final value = ref.watch(clickedTimesProvider);
+    final value = ref.watch(autoDisposedClickedTimesProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: TextWidgets.bodyText(context, 'StateProvider'),
+        title: TextWidgets.bodyText(context, 'AutoDisposed StateProvider'),
       ),
       body: Center(
         child: TextWidgets.headlineText(
@@ -27,8 +27,13 @@ class BasicPage extends ConsumerWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // notifier property provides an instance of ths object (in this is "all State Provider")
-          ref.read(counterProvider.notifier).state++;
+          ref
+              .read(autoDisposedCounterProvider.notifier)
+              .update((state) => state + 10);
+          /* ALTERNATIVE SYNTAX
+          ref.read(autoDisposedCounterProvider.notifier).state =
+              ref.read(autoDisposedCounterProvider.notifier).state + 10;
+          */
         },
         child: const Icon(Icons.add),
       ),
@@ -39,18 +44,18 @@ class BasicPage extends ConsumerWidget {
    */
   void _showDialogWhenCounterIsEqual3(WidgetRef ref, BuildContext context) {
     ref.listen<int>(
-      counterProvider,
+      autoDisposedCounterProvider,
       (previous, next) {
-        if (next == 3) {
+        if (next == 70) {
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              content: TextWidgets.headlineText(context, 'counter: $next'),
+              content:
+                  TextWidgets.headlineText(context, 'U\'ve clicked: $next'),
             ),
           );
         }
       },
     );
   }
-  //
 }

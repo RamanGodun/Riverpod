@@ -2,7 +2,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 //rivp and choose autocompletion
 // dart run build_runner build watch
-part 'gen_basic_provider.g.dart';
+part '_0_basic_provider_gen.g.dart';
 
 // riverpodKeepAlive and choose autocompletion
 @Riverpod(keepAlive: true)

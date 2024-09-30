@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../data/helpers.dart';
-import '../+code_generation/gen_family_provider.dart';
+import '../with_code_generation/_2_plus_family_mod_gen.dart';
 // import 'family_provider.dart';
 
 class FamilyPage extends ConsumerWidget {

@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'gen_family_provider.g.dart';
+part '_2_plus_family_mod_gen.g.dart';
 
 @Riverpod(keepAlive: true)
 String family(FamilyRef ref, {required String customName}) {

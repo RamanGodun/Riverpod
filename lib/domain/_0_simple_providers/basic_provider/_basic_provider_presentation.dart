@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../data/helpers.dart';
-import '../+code_generation/gen_basic_provider.dart';
+import '../with_code_generation/_0_basic_provider_gen.dart';
 // import 'basic_provider.dart';
 
 class BasicPage extends ConsumerStatefulWidget {
