@@ -1,24 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '_basic_provider.dart';
+part of 'dio_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$clickedTimesHash() => r'bc607a726b09f395a66df418980fca135f698c5c';
+String _$dioHash() => r'a0f798bda8504fd35a77c09ffd904d2dd412751f';
 
-/// See also [clickedTimes].
-@ProviderFor(clickedTimes)
-final clickedTimesProvider = Provider<String>.internal(
-  clickedTimes,
-  name: r'clickedTimesProvider',
+/// See also [dio].
+@ProviderFor(dio)
+final dioProvider = AutoDisposeProvider<Dio>.internal(
+  dio,
+  name: r'dioProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$clickedTimesHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$dioHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef ClickedTimesRef = ProviderRef<String>;
+typedef DioRef = AutoDisposeProviderRef<Dio>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

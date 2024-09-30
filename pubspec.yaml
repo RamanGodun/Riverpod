@@ -8,6 +8,7 @@ environment:
 
 dependencies:
   cupertino_icons: ^1.0.8
+  dio: ^5.7.0
   equatable: ^2.0.5
   flutter:
     sdk: flutter
@@ -31,8 +32,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
 # analyzer:
 #   plugins:
 #     - custom_lint
-
 # include: package:flutter_lints/flutter.yaml
