@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../data/app_constants.dart';
 import '../../../widgets/text_widgets.dart';
 import '_basic_provider.dart';
 
@@ -9,10 +10,10 @@ class BasicPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    //
+    // Call the method that listens for changes and shows a dialog if the counter equals 3
     _showDialogWhenCounterIsEqual3(ref, context);
 
-    // final value = ref.watch(counterProvider);
+    // Watch the value of clickedTimesProvider to rebuild the UI on state changes
     final value = ref.watch(clickedTimesProvider);
 
     return Scaffold(
@@ -20,14 +21,24 @@ class BasicPage extends ConsumerWidget {
         title: TextWidgets.bodyText(context, 'StateProvider'),
       ),
       body: Center(
-        child: TextWidgets.headlineText(
-          context,
-          value, //was '$value'
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextWidgets.headlineText(
+              context,
+              "You've already clicked ",
+            ),
+            TextWidgets.headlineText(
+              context,
+              '$value times',
+              color: AppConstants.errorColor,
+            )
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // notifier property provides an instance of ths object (in this is "all State Provider")
+          // Increment the state of counterProvider using its Notifier
           ref.read(counterProvider.notifier).state++;
         },
         child: const Icon(Icons.add),
@@ -35,22 +46,30 @@ class BasicPage extends ConsumerWidget {
     );
   }
 
-  /*  A separate method for listening to changes and displaying a dialog
+  /*
+   * Listens to the counterProvider and shows a dialog when the counter reaches 3
+   * This approach prevents rebuilding the widget tree unnecessarily.
    */
   void _showDialogWhenCounterIsEqual3(WidgetRef ref, BuildContext context) {
     ref.listen<int>(
       counterProvider,
       (previous, next) {
         if (next == 3) {
+          // Show a dialog when the counter value reaches 3
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              content: TextWidgets.headlineText(context, 'counter: $next'),
+              content: Center(
+                child: TextWidgets.headlineText(
+                  context,
+                  'WARNING: $next times!',
+                  color: AppConstants.errorColor,
+                ),
+              ),
             ),
           );
         }
       },
     );
   }
-  //
 }
