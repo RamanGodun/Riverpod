@@ -5,7 +5,7 @@ import 'domain/state_provider/auto_dispose/show_auto_dispose_provider.dart';
 import 'domain/state_provider/auto_dispose_family/show_auto_dispose_family_provider.dart';
 import 'domain/state_provider/basic/show_basic_provider.dart';
 import 'domain/state_provider/family/show_family_provider.dart';
-import 'presentation/widgets/custom_button.dart';
+import 'widgets/custom_button.dart';
 
 void main() {
   runApp(

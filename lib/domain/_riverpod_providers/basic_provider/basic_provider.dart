@@ -19,7 +19,7 @@ final wordsProvider = Provider<String>((ref) {
  */
 
 /*
- This provider (`wordsProvider`) does not dispose automatically.
+ This provider  does not dispose automatically.
  The `onDispose` callback is never triggered because
  the provider stays in memory throughout the entire app run.
 

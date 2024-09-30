@@ -1,10 +1,10 @@
-// import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 //rivp and choose autocompletion
 // dart run build_runner build watch
 part 'gen_basic_provider.g.dart';
 
+// riverpodKeepAlive and choose autocompletion
 @Riverpod(keepAlive: true)
 String hello(HelloRef ref) {
   ref.onDispose(() {
@@ -23,24 +23,9 @@ String words(WordsRef ref) {
   return 'Words provider';
 }
 
-// final helloProvider = Provider<String>((ref) {
-//   ref.onDispose(() {
-//     print('[helloProvider] was disposed');
-//   });
-
-//   return 'Hello providers';
-// });
-
-// final wordsProviders = Provider<String>((ref) {
-//   ref.onDispose(() {
-//     print('[wordsProviders] was disposed');
-//   });
-
-//   return 'Words provider';
-// });
 
 /*
- This provider (`wordsProviders`) does not dispose automatically.
+ This provider  does not dispose automatically.
  The `onDispose` callback is never triggered because
  the provider stays in memory throughout the entire app run.
 
