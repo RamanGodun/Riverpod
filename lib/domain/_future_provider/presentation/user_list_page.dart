@@ -5,8 +5,8 @@ import 'package:riverpod_project/widgets/text_widgets.dart';
 
 import '../../../data/helpers.dart';
 import '../../../widgets/mini_widgets.dart';
-import '../providers/users_providers_gen.dart'; //in case of code generation
-// import '../providers/users_providers.dart'; //in case of we don't use code generation
+import '../providers/users_providers_gen.dart'; // In case of code generation
+// import '../providers/users_providers.dart'; // In case we don't use code generation
 import 'user_detail_page.dart';
 
 class UserListPage extends ConsumerWidget {
@@ -16,13 +16,38 @@ class UserListPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final userList = ref.watch(userListProvider);
 
+    /*
+        General logging prints to track all states of the provider.
+        This helps in understanding how states change during different phases (loading, refreshing, etc.).
+        For example, when you refresh the page, you can see that loading state occurs while the data may still be available.
+    */
+    // print(
+    //     'isLoading: ${userList.isLoading},     isRefreshing: ${userList.isRefreshing},     isReloading: ${userList.isReloading}');
+    // print('hasValue: ${userList.hasValue},    hasError: ${userList.hasError}');
+    // print(userList);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('User List'),
+        actions: [
+          IconButton(
+            onPressed: () async {
+              // Invalidate the provider to trigger a full rebuild and data refetch.
+              ref.invalidate(userListProvider);
+            },
+            icon: const Icon(Icons.refresh),
+          )
+        ],
       ),
       body: userList.when(
+        // `skipLoadingOnRefresh` set to false to show the loading indicator
+        // when refreshing the page. This is an appropriate UX choice when the refresh button
+        // is in the AppBar, but may not be ideal for using with a `RefreshIndicator` widget.
+        skipLoadingOnRefresh: false,
         data: (users) {
           return ListView.separated(
+            // Necessary when using the `RefreshIndicator` widget to ensure scrolling is always available.
+            physics: const AlwaysScrollableScrollPhysics(),
             itemCount: users.length,
             separatorBuilder: (BuildContext context, int index) {
               return const Divider();
@@ -49,10 +74,11 @@ class UserListPage extends ConsumerWidget {
       /*
         * ALTERNATIVE syntax
         * The following is an example of using `switch` with `AsyncValue`.
-        * This demonstrates how to handle the different states of `userList` in an alternative way.
+        * It demonstrates how to handle the different states of `userList`
+        * using pattern matching for a more concise and readable approach.
       */
       // body: switch (userList) {
-      //   // Correctly accessing the data inside AsyncData using 'value'
+      //   // Accessing the data inside `AsyncData` using `value`
       //   AsyncData(:final value) => ListView.separated(
       //       itemCount: value.length,
       //       separatorBuilder: (BuildContext context, int index) {
