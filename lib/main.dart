@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'domain/_future_provider/presentation/family_dispose_presentation.dart';
-import 'domain/_future_provider/presentation/user_list_page.dart';
+import 'domain/notifier_provider/presentation/counter_page.dart';
+import 'domain/notifier_provider/presentation/enum_activity_page.dart';
+import 'domain/notifier_provider/presentation/sealed_activity_page.dart';
 import 'widgets/custom_button.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Future Provider',
+      title: 'NotifierProvider',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -37,21 +38,24 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('FutureProvider'),
+        title: const Text('NotifierProvider'),
       ),
       body: Center(
         child: ListView(
-          shrinkWrap: true,
           padding: const EdgeInsets.all(20),
+          shrinkWrap: true,
           children: const [
             CustomButton(
-              title: 'User List',
-              child: UserListPage(),
+              title: 'Counter',
+              child: CounterPage(),
             ),
-            SizedBox(height: 50),
             CustomButton(
-              title: 'Family Disposed List',
-              child: FamilyDisposePage(),
+              title: 'Enum Activity',
+              child: EnumActivityPage(),
+            ),
+            CustomButton(
+              title: 'Sealed Activity',
+              child: SealedActivityPage(),
             ),
           ],
         ),
