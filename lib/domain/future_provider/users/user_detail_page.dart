@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_project/widgets/mini_widgets.dart';
 import 'package:riverpod_project/widgets/text_widgets.dart';
 
-// import '../providers/users_providers_gen.dart'; //in case of code generation
-import '../providers/users_providers.dart'; //in case of we don't use code generation
+import '../providers/users_providers_gen.dart'; // in case of code generation
+// import '../providers/users_providers.dart'; // in case of we don't use code generation
 
 class UserDetailPage extends ConsumerWidget {
   final int userId;
@@ -13,7 +13,6 @@ class UserDetailPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userDetail = ref.watch(userDetailProvider(userId));
-    final theme = Theme.of(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -21,37 +20,38 @@ class UserDetailPage extends ConsumerWidget {
       ),
       body: userDetail.when(
         data: (user) {
+          final userInfoList = [
+            {'icon': Icons.account_circle, 'info': user.username},
+            {'icon': Icons.email_rounded, 'info': user.email},
+            {'icon': Icons.phone_enabled, 'info': user.phone},
+            {'icon': Icons.web_rounded, 'info': user.website},
+          ];
+
           return Center(
-            child: ListView(
+            child: ListView.builder(
               shrinkWrap: true,
               padding: const EdgeInsets.only(
                   left: 25, right: 20, bottom: 200, top: 50),
-              children: [
-                Text(
-                  user.name,
-                  style: theme.textTheme.headlineMedium,
-                ),
-                const Divider(),
-                UserInfo(
-                  iconData: Icons.account_circle,
-                  userInfo: user.username,
-                ),
-                const SizedBox(height: 10),
-                UserInfo(
-                  iconData: Icons.email_rounded,
-                  userInfo: user.email,
-                ),
-                const SizedBox(height: 10),
-                UserInfo(
-                  iconData: Icons.phone_enabled,
-                  userInfo: user.phone,
-                ),
-                const SizedBox(height: 10),
-                UserInfo(
-                  iconData: Icons.web_rounded,
-                  userInfo: user.website,
-                ),
-              ],
+              itemCount: userInfoList.length + 1,
+              itemBuilder: (context, index) {
+                if (index == 0) {
+                  return Column(
+                    children: [
+                      TextWidgets.headlineText(context, user.name),
+                      const Divider(),
+                    ],
+                  );
+                } else {
+                  final userInfo = userInfoList[index - 1];
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: UserInfo(
+                      iconData: userInfo['icon'] as IconData,
+                      userInfo: userInfo['info'] as String,
+                    ),
+                  );
+                }
+              },
             ),
           );
         },
@@ -65,11 +65,7 @@ class UserDetailPage extends ConsumerWidget {
 class UserInfo extends StatelessWidget {
   final IconData iconData;
   final String userInfo;
-  const UserInfo({
-    super.key,
-    required this.iconData,
-    required this.userInfo,
-  });
+  const UserInfo({super.key, required this.iconData, required this.userInfo});
 
   @override
   Widget build(BuildContext context) {

@@ -8,8 +8,10 @@ final userListProvider = FutureProvider.autoDispose<List<User>>((ref) async {
   ref.onDispose(() {
     print('[userListProvider] disposed');
   });
-  // ! dioProvider is autoDisposed Provider, si this provider have to be also autoDisposed
+
   final response = await ref.watch(dioProvider).get('/users');
+  // ! dioProvider is autoDisposed Provider, so this provider have to be also autoDisposed
+
   // when there is a need to test error case -- uncomment next:
   // throw 'Fail to fetch user list';
   final List userList = response.data;
@@ -22,7 +24,11 @@ final userDetailProvider =
   ref.onDispose(() {
     print('[userDetailProvider($id)] disposed');
   });
+
   final response = await ref.watch(dioProvider).get('/users/$id');
+  // ! dioProvider is autoDisposed Provider, so this provider have to be also autoDisposed
+  // !!! OR we can use "ref.keepAlive();" to CASH DATA
+  ref.keepAlive();
   final user = User.fromJson(response.data);
   return user;
 });
