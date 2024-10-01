@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'domain/future_provider/pages/users/user_list_page.dart';
+import 'domain/future_provider/users/user_list_page.dart';
 import 'widgets/custom_button.dart';
 
 void main() {

@@ -1,14 +1,17 @@
 /*
 ===============================
 ## About AsyncValue
-here must be main important info about AsyncValue... With this I never fail handle loading or error state  of async operations,
-Also exposes utilities tyo nicely converting an AsyncValue to a different objects, plus result always is synchronous
-this is sealed and immutable class (what is this?)
+here must be main important info about AsyncValue...
+- With AsyncValue I never fail handle loading or error state  of async operations,
+-Also exposes utilities tyo nicely converting an AsyncValue to a different objects,
+- plus result let handle async values synchronously (in any moment provides value synchronously)
+-  this is sealed and immutable class (what is this?)
 ===============================
 
 ===============================
 ## R when <R>({})
 Has these arguments: data, error, loading, (specify others and what they do and when are used).
+is a alternative syntax to "switch"
 ===============================
 
 // ===============================

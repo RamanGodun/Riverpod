@@ -27,3 +27,5 @@ final autoDisposedProvider = Provider.autoDispose<String>((ref) {
  When all consumers of this provider stop listening to it,
  the provider is disposed of, freeing any associated memory and resources.
  */
+
+// !! AutoDisposed Provider uses when there is no need of data cashing (when content of page doesn't change frequently/often )

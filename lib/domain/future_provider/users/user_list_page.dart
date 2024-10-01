@@ -3,9 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_project/widgets/custom_list_tile.dart';
 import 'package:riverpod_project/widgets/text_widgets.dart';
 
-import '../../../../data/helpers.dart';
-import '../../../../widgets/mini_widgets.dart';
-import '../../providers/users_providers.dart';
+import '../../../data/helpers.dart';
+import '../../../widgets/mini_widgets.dart';
+// import '../providers/users_providers_gen.dart'; //in case of code generation
+import '../providers/users_providers.dart'; //in case of we don't use code generation
 import 'user_detail_page.dart';
 
 class UserListPage extends ConsumerWidget {
@@ -42,8 +43,7 @@ class UserListPage extends ConsumerWidget {
             },
           );
         },
-        error: (error, stackTrace) =>
-            AppMiniWidgets.errorWidget(context, error),
+        error: (error, stTrace) => AppMiniWidgets.errorWidget(context, error),
         loading: () => AppMiniWidgets.loadingWidget(),
       ),
       /*
