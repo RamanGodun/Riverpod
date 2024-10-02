@@ -3,41 +3,54 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../widgets/text_field.dart';
 import '../../widgets/text_widgets.dart';
+// import 'state_notifier_provider.dart'; // when using StateNotifier provider
 import 'change_notifier_provider.dart';
 
+/// The `TodosPage` is responsible for displaying a list of todos.
+/// It leverages `ConsumerWidget` to listen for changes in the state of the `todosProvider`,
+/// and rebuilds when the state is updated.
 class TodosPage extends ConsumerWidget {
   const TodosPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final todos = ref.watch(todosProvider); // when with state notifier provider
-    final todos =
-        ref.watch(todosProvider).todos; // when with change notifier provider
-    print(todos);
+    // When using ChangeNotifierProvider, we access the todos list directly from the provider's state.
+    final todos = ref.watch(todosProvider).todos;
+    // final todos = ref.watch(todosProvider); //when use state,notifier provider
+    // print(todos);
 
     return Scaffold(
       appBar: AppBar(
+        // Custom text widget for the app bar title.
         title: TextWidgets.titleMediumText(context, 'Todos'),
       ),
       body: Column(
         children: [
+          // Custom text field for adding new todos.
           const AppTextField(),
           const SizedBox(height: 20),
           Expanded(
             child: ListView(
               children: [
+                // Iterating over the list of todos and displaying each one as a `CheckboxListTile`.
                 for (final todo in todos)
                   CheckboxListTile(
                     visualDensity: VisualDensity.compact,
                     controlAffinity: ListTileControlAffinity.leading,
                     value: todo.completed,
+                    // Toggles the completed state of the todo when the checkbox is clicked.
                     onChanged: (value) =>
-                        ref.read(todosProvider.notifier).toggleTodo(todo.id),
-                    title: TextWidgets.titleMediumText(context,
-                        todo.description), // перевірка на назву властивості
+                        // Using ChangeNotifierProvider to toggle the todo's completed state.
+                        ref.read(todosProvider).toggleTodo(todo.id),
+                    // ref.read(todosProvider.notifier).toggleTodo(todo.id) //when use state,notifier provider
+                    title:
+                        TextWidgets.titleMediumText(context, todo.description),
+                    // Icon button to delete a todo from the list.
                     secondary: IconButton(
                       onPressed: () =>
-                          ref.read(todosProvider.notifier).removeTodo(todo.id),
+                          // Using ChangeNotifierProvider to remove the todo from the list.
+                          ref.read(todosProvider).removeTodo(todo.id),
+                      // ref.read(todosProvider.notifier).removeTodo(todo.id) //when use state,notifier provider
                       icon: const Icon(Icons.delete),
                     ),
                   ),

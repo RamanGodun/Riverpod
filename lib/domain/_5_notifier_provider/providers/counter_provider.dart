@@ -1,6 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Counter extends AutoDisposeFamilyNotifier<int, int> {
+/*
+The state of AutoDisposeFamilyNotifier have to be initialized SYNCHRONOUSLY
+(if it's initialized ASYNCHRONOUSLY -- then use ASYNC NOTIFIER)
+ */
+class CounterOnNotifier extends AutoDisposeFamilyNotifier<int, int> {
   @override
   int build(int arg) {
     ref.onDispose(() {
@@ -14,5 +18,5 @@ class Counter extends AutoDisposeFamilyNotifier<int, int> {
   }
 }
 
-final counterProvider =
-    NotifierProvider.autoDispose.family<Counter, int, int>(Counter.new);
+final counterProvider = NotifierProvider.autoDispose
+    .family<CounterOnNotifier, int, int>(CounterOnNotifier.new);

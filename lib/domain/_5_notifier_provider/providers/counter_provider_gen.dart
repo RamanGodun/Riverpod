@@ -3,7 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'counter_provider_gen.g.dart';
 
 @riverpod
-class Counter extends _$Counter {
+class CounterOnNotifier extends _$CounterOnNotifier {
   @override
   int build(int initialValue) {
     ref.onDispose(() {
