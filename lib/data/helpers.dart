@@ -24,6 +24,15 @@ class Helpers {
     return colorScheme;
   }
 
-  /*
+  /* For TIMER
    */
+  static String zeroPaddedTwoDigits(double ticks) {
+    return ticks.floor().toString().padLeft(2, '0');
+  }
+
+  static String formatTimer(int ticks) {
+    final minutes = zeroPaddedTwoDigits((ticks / 60) % 60);
+    final seconds = zeroPaddedTwoDigits(ticks % 60);
+    return '$minutes:$seconds';
+  }
 }

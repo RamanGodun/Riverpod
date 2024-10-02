@@ -1,60 +1,49 @@
 /*
 ===============================
-===============================
-
-
-===============================
 ## About AsyncValue
-`AsyncValue` is a sealed and immutable class designed for handling the state of asynchronous operations (loading, data, error).
-- It ensures that loading and error states are always handled properly, providing a consistent API for async operations.
-- `AsyncValue` exposes utilities to easily convert its state (data, loading, error) into other objects or widgets, making it declarative.
-- It allows you to access the result of async operations synchronously at any time without having to await future results.
-- Being sealed and immutable means that `AsyncValue` cannot be subclassed or modified, ensuring consistency and predictability.
+`AsyncValue` is a sealed and immutable class designed to handle the state of asynchronous operations such as loading, success (data), or error.
+- It ensures that both loading and error states are always properly managed, providing a consistent API for handling asynchronous events.
+- `AsyncValue` exposes utilities to easily convert its state (data, loading, error) into widgets or objects, making it highly declarative.
+- It allows you to access the result of asynchronous operations synchronously at any time, without awaiting future results.
+- Being sealed and immutable means `AsyncValue` cannot be subclassed or modified, ensuring consistency, immutability, and thread-safety.
+
+Key states:
+- **loading**: Represents the state when the operation is in progress.
+- **data**: Contains the result when the operation completes successfully.
+- **error**: Represents any errors that occurred during the operation.
 ===============================
 
-
 ===============================
-## ## Stream provider
-- Stream provider works similar (use AsyncValue) fo future provider as stream is "set of futures"
-- use-case: constantly read/write data from/to source/storage, which vale change with time
-===============================
+## StreamProvider
+`StreamProvider` is similar to `FutureProvider` but is designed for handling streams of asynchronous data.
+- A stream is essentially a sequence of asynchronous events (like "a set of futures"), allowing data to be emitted over time.
+- The `StreamProvider` uses `AsyncValue` to manage the state of the stream, which could be `loading`, `data`, or `error`.
+- Common use case: It is ideal when you need to constantly listen to data that updates over time,
+such as real-time data from an API, sensor data, or live updates from a database.
 
+Key differences from `FutureProvider`:
+- **FutureProvider** resolves only once (returns a single value or error), whereas **StreamProvider** can emit multiple values over time.
+- Stream-based logic is useful for tasks like tracking real-time data streams, where the state evolves over time.
+===============================
 
 ===============================
 ## USE-CASEs
--
+- **Real-time data streaming**: Ideal for applications that deal with live data, like chat applications, stock prices,
+weather updates, or live sensor data.
+- **Continuous read/write operations**: Useful when data needs to be fetched or written continuously from a source that changes over time,
+ such as a database or file system.
+- **Listening to changes in external sources**: For example, observing Firebase Firestore document snapshots,
+where data can be updated by other users in real-time.
 ===============================
 
-
-// ===============================
-// ## Main benefit of FUTURE Provider
-// With `FutureProvider`, imperative code (like calling an API in `initState` and handling loading/data/error states) becomes **declarative**.
-// - You simply watch the state of the provider and declaratively specify what should happen when the state changes.
-// - It removes the need for manually managing state transitions, focusing instead on how to render the UI based on the current state.
-// ===============================
-
-
-// ===============================
-// ## Future Provider has INVALIDATE and REFRESH methods
-// - `invalidate`: Causes the provider to be disposed and rebuild when it is next accessed (next frame).
-// - `refresh`: Immediately triggers a re-execution of the provider's computation and returns the new result.
-
-// Key Differences:
-// - `invalidate` waits until the next frame to trigger the rebuild, ensuring it happens only once, even if `invalidate` is called multiple times.
-// - `refresh` is synchronous and immediately starts re-computing the provider's result.
-// - `invalidate` is generally safer in fast sessions to avoid unnecessary multiple rebuilds.
-
-// These methods are useful for features like:
-// - **Pull to refresh**
-// - **Retry on error**
-// - **Restart a specific provider** to fetch fresh data or reset the computation.
-// ===============================
-
-
-// ===============================
-// ## OTHER IMPORTANT info
-// - `FutureProvider` is immutable and declarative, meaning you can't directly modify the state once it's computed, only refresh or invalidate it.
-// - Avoid overusing `invalidate` unless you specifically need to reset the provider's state.
-// ===============================
-
+===============================
+## Other important info
+- **Performance considerations**: Since streams can potentially emit data continuously,
+ ensure to properly manage subscriptions and disposal using `autoDispose`
+ when appropriate. Failing to do so can lead to memory leaks or unnecessary performance overhead.
+- **Error handling**: Use `StreamProvider`'s `error` state to gracefully handle stream errors (network issues, server errors)
+and display meaningful UI feedback to users.
+- **Combining providers**: You can combine multiple `StreamProvider` or mix with other providers to compose more complex logic,
+ allowing different pieces of your app to react to different streams of data.
+===============================
 */
