@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../data/models/activity.dart';
-import '../_providers/enum_activity_provider.dart';
-import '../_providers/enum_activity_state.dart';
+import '../providers/enum_activity_provider.dart';
+import '../providers/enum_activity_state.dart';
 
 
 

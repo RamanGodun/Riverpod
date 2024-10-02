@@ -3,9 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../data/models/activity.dart';
-import '../_providers/sealed_activity_provider.dart';
+import '../providers/sealed_activity_provider.dart';
 import 'enum_activity_page.dart';
-import '../_providers/sealed_activity_state.dart';
+import '../providers/sealed_activity_state.dart';
 
 class SealedActivityPage extends ConsumerStatefulWidget {
   const SealedActivityPage({super.key});

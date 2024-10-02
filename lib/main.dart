@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'domain/_stream_provider/ticker_presentation.dart';
-import 'domain/notifier_provider/presentation/counter_page.dart';
-import 'domain/notifier_provider/presentation/enum_activity_page.dart';
-import 'domain/notifier_provider/presentation/sealed_activity_page.dart';
+import 'domain/_3_stream_provider/ticker_presentation.dart';
+import 'domain/_4_state_or_change_notifier_provider/todos_presentation.dart';
+import 'domain/_5_notifier_provider/presentation/counter_page.dart';
+import 'domain/_5_notifier_provider/presentation/enum_activity_page.dart';
+import 'domain/_5_notifier_provider/presentation/sealed_activity_page.dart';
 import 'widgets/custom_button.dart';
 
 void main() {
@@ -61,6 +62,10 @@ class MyHomePage extends StatelessWidget {
             CustomButton(
               title: 'Ticker',
               child: TickerPage(),
+            ),
+            CustomButton(
+              title: 'Todo',
+              child: TodosPage(),
             )
           ],
         ),

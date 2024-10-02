@@ -4,12 +4,16 @@
 
 
 ===============================
-## About AsyncValue
-`AsyncValue` is a sealed and immutable class designed for handling the state of asynchronous operations (loading, data, error).
-- It ensures that loading and error states are always handled properly, providing a consistent API for async operations.
-- `AsyncValue` exposes utilities to easily convert its state (data, loading, error) into other objects or widgets, making it declarative.
-- It allows you to access the result of async operations synchronously at any time without having to await future results.
-- Being sealed and immutable means that `AsyncValue` cannot be subclassed or modified, ensuring consistency and predictability.
+## About StateNotifierProvider (state_notifier package) and ChangeNotifierProvider
+- Allows to expose and listen StateNotifier subclass
+- No code generation supports for StateNotifierProvider or ChangeNotifierProvider
+- ChangeNotifier class allows to centralize and handle complicated business logic
+- NotifierProvider and AsyncNotifierProvider also centralize BL, but they are immutable
+- Remi (author) recommends to use NotifierProvider instead of StateNotifierProvider,
+which is a legacy (as ChangeNotifierProvider and ChangeNotifier), in fact
+- ChangeNotifierProvider is for cases, where mutable state (models) is preferred
+- In ChangeNotifier class syntax is similar as used in Provider package (also Remi author)
+
 ===============================
 
 
