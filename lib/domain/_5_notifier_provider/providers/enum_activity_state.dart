@@ -5,6 +5,9 @@ import '../../../../data/models/activity.dart';
 
 part 'enum_activity_state.freezed.dart';
 
+/*
+This is within "Enum state shape", when all possible states are in one class
+ */
 enum ActivityStatus {
   initial,
   loading,

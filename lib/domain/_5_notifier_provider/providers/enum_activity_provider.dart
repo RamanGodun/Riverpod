@@ -42,6 +42,8 @@ class EnumActivity extends _$EnumActivity {
       }
 
       final response = await ref.read(dioProvider).get('?type=$activityType');
+      print('Status code: ${response.statusCode}');
+      print('Response body: ${response.data}');
 
       final List activityList = response.data;
 

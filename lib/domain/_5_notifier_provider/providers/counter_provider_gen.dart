@@ -7,7 +7,7 @@ class CounterOnNotifier extends _$CounterOnNotifier {
   @override
   int build(int initialValue) {
     ref.onDispose(() {
-      print('[counterProvider] disposed');
+      print('[counterProviderOnNotifier] was disposed');
     });
     return initialValue;
   }
