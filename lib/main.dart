@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'domain/_stream_provider/ticker_presentation.dart';
 import 'domain/notifier_provider/presentation/counter_page.dart';
 import 'domain/notifier_provider/presentation/enum_activity_page.dart';
 import 'domain/notifier_provider/presentation/sealed_activity_page.dart';
@@ -57,6 +58,10 @@ class MyHomePage extends StatelessWidget {
               title: 'Sealed Activity',
               child: SealedActivityPage(),
             ),
+            CustomButton(
+              title: 'Ticker',
+              child: TickerPage(),
+            )
           ],
         ),
       ),
