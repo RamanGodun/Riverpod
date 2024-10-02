@@ -7,12 +7,7 @@ part 'dio_provider.g.dart';
 Dio dio(DioRef ref) {
   return Dio(
     BaseOptions(
-      baseUrl:
-          'https://bored-api.appbrewery.com/filter', // правильний URL для фільтрації
+      baseUrl: 'https://bored-api.appbrewery.com/filter',
     ),
   );
 }
-
-// https://bored-api.appbrewery.com/filter?type=education
-// 'https://bored-api.appbrewery.com/filter',
-// https://bored-api.appbrewery.com/random

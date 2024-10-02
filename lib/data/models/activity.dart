@@ -1,9 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
+// pts, pts  => autocompletion
 part 'activity.freezed.dart';
 part 'activity.g.dart';
 
+// fdata () => autocompletion
 @freezed
 class Activity with _$Activity {
   const factory Activity({
@@ -19,6 +21,8 @@ class Activity with _$Activity {
     required String key,
   }) = _Activity;
 
+
+// fromJson => => autocompletion
   factory Activity.fromJson(Map<String, dynamic> json) =>
       _$ActivityFromJson(json);
 

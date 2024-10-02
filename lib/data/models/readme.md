@@ -1,4 +1,4 @@
-## Code optimization with correct models
+<!-- ## Code optimization with correct models
 
 Even objects with the same simple arguments can have different hash codes,
 which makes them different instances in memory. This can lead to unnecessary
@@ -18,4 +18,4 @@ can be done more efficiently by using:
   `hashCode` and `==` handling.
 
 By using these libraries, we ensure that objects with the same data are treated
-as equal, which improves performance and reduces memory usage.
+as equal, which improves performance and reduces memory usage. -->

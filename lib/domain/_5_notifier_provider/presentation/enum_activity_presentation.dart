@@ -1,13 +1,13 @@
 import 'dart:math';
 
+import 'package:bulleted_list/bulleted_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_project/widgets/mini_widgets.dart';
 
 import '../../../data/models/activity.dart';
 import '../providers/enum_activity_provider.dart';
 import '../providers/enum_activity_state.dart';
-
-
 
 class EnumActivityPage extends ConsumerStatefulWidget {
   const EnumActivityPage({super.key});
@@ -71,20 +71,10 @@ class _EnumActivityPageState extends ConsumerState<EnumActivityPage> {
               style: TextStyle(fontSize: 20),
             ),
           ),
-        ActivityStatus.loading => const Center(
-            child: CircularProgressIndicator(),
-          ),
+        ActivityStatus.loading => AppMiniWidgets.loadingWidget(),
         ActivityStatus.failure =>
           activityState.activities.first == Activity.empty()
-              ? Center(
-                  child: Text(
-                    activityState.error,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      color: Colors.red,
-                    ),
-                  ),
-                )
+              ? AppMiniWidgets.errorWidget(context, e)
               : ActivityWidget(activity: activityState.activities.first),
         ActivityStatus.success => ActivityWidget(
             activity: activityState.activities.first,
@@ -124,24 +114,24 @@ class ActivityWidget extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         const Divider(),
-        // BulletedList(
-        //   bullet: const Icon(
-        //     Icons.check,
-        //     color: Colors.green,
-        //   ),
-        //   listItems: [
-        //     'activity: ${activity.activity}',
-        //     'availability: ${activity.availability}',
-        //     'participants: ${activity.participants}',
-        //     'price: ${activity.price}',
-        //     'accessibility: ${activity.accessibility}',
-        //     'duration: ${activity.duration}',
-        //     'link: ${activity.link.isEmpty ? 'no link' : activity.link}',
-        //     'kidFriendly: ${activity.kidFriendly}',
-        //     'key: ${activity.key}',
-        //   ],
-        //   style: Theme.of(context).textTheme.titleLarge,
-        // ),
+        BulletedList(
+          bullet: const Icon(
+            Icons.check,
+            color: Colors.green,
+          ),
+          listItems: [
+            'activity: ${activity.activity}',
+            'availability: ${activity.availability}',
+            'participants: ${activity.participants}',
+            'price: ${activity.price}',
+            'accessibility: ${activity.accessibility}',
+            'duration: ${activity.duration}',
+            'link: ${activity.link.isEmpty ? 'no link' : activity.link}',
+            'kidFriendly: ${activity.kidFriendly}',
+            'key: ${activity.key}',
+          ],
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
       ],
     );
   }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../data/models/activity.dart';
 import '../providers/sealed_activity_provider.dart';
-import 'enum_activity_page.dart';
+import 'enum_activity_presentation.dart';
 import '../providers/sealed_activity_state.dart';
 
 class SealedActivityPage extends ConsumerStatefulWidget {
