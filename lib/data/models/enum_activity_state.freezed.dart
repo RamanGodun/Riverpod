@@ -16,8 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$EnumActivityState {
-  ActivityStatus get status => throw _privateConstructorUsedError;
-  List<Activity> get activities => throw _privateConstructorUsedError;
+  ActivityStatus get status =>
+      throw _privateConstructorUsedError; // Tracks the current status of the data fetching.
+  List<Activity> get activities =>
+      throw _privateConstructorUsedError; // List of fetched activities.
   String get error => throw _privateConstructorUsedError;
 
   /// Create a copy of EnumActivityState
@@ -130,7 +132,9 @@ class _$EnumActivityStateImpl
 
   @override
   final ActivityStatus status;
+// Tracks the current status of the data fetching.
   final List<Activity> _activities;
+// Tracks the current status of the data fetching.
   @override
   List<Activity> get activities {
     if (_activities is EqualUnmodifiableListView) return _activities;
@@ -138,6 +142,7 @@ class _$EnumActivityStateImpl
     return EqualUnmodifiableListView(_activities);
   }
 
+// List of fetched activities.
   @override
   final String error;
 
@@ -188,9 +193,9 @@ abstract class _EnumActivityState implements EnumActivityState {
       required final String error}) = _$EnumActivityStateImpl;
 
   @override
-  ActivityStatus get status;
+  ActivityStatus get status; // Tracks the current status of the data fetching.
   @override
-  List<Activity> get activities;
+  List<Activity> get activities; // List of fetched activities.
   @override
   String get error;
 

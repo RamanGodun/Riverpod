@@ -8,7 +8,8 @@ import 'package:riverpod_project/widgets/text_widgets.dart';
 
 import '../../../data/models/activity.dart';
 import '../../../data/models/enum_activity_state.dart';
-import '../../../widgets/error_dialog.dart';
+// import '../../../widgets/error_dialog.dart'; // uses when use error dialog (without separate provider)
+import '../providers/dialog_provider.dart';
 import '../providers/enum_activity_provider.dart';
 
 // StatefulWidget is used here to handle widget lifecycle and state changes
@@ -40,7 +41,10 @@ class _EnumActivityPageState extends ConsumerState<EnumActivityPage> {
   Widget build(BuildContext context) {
     // Listening to changes in the EnumActivityState provider.
     // If the status transitions to 'failure', an error dialog is displayed.
-    listenForFailures(context);
+
+    // listenForFailures(context); // error dialog can be called like this or next:
+    // Access ErrorHandlingService and listen for failures
+    ref.read(errorHandlingProvider).listenForFailures(ref, context);
 
     // Watching the current state of the provider.
     final activityState = ref.watch(enumActivityProvider);
@@ -70,10 +74,14 @@ class _EnumActivityPageState extends ConsumerState<EnumActivityPage> {
         // Loading state, displaying a loading widget.
         ActivityStatus.loading => AppMiniWidgets.loadingWidget(),
         // Failure state, displaying an error widget or a fallback activity.
-        ActivityStatus.failure =>
-          activityState.activities.first == Activity.empty()
-              ? AppMiniWidgets.errorWidget(context, activityState.error)
-              : ActivityWidget(activity: activityState.activities.first),
+        //  when no available previous data => error widget
+        // ! when failure happens, then available previous data are shown (good pattern)
+        ActivityStatus.failure => activityState.activities.first ==
+                Activity.empty()
+            ? Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: AppMiniWidgets.errorWidget(context, activityState.error))
+            : ActivityWidget(activity: activityState.activities.first),
         // Success state, displaying the fetched activity.
         ActivityStatus.success =>
           ActivityWidget(activity: activityState.activities.first),
@@ -94,16 +102,16 @@ class _EnumActivityPageState extends ConsumerState<EnumActivityPage> {
 /* Methods next
  */
 // Method to listen for any failures in the EnumActivityState provider and display an error dialog.
-  void listenForFailures(BuildContext context) {
-    ref.listen<EnumActivityState>(
-      enumActivityProvider,
-      (previous, next) {
-        if (next.status == ActivityStatus.failure && context.mounted) {
-          ErrorDialog.show(context, next.error);
-        }
-      },
-    );
-  }
+  // void listenForFailures(BuildContext context) {
+  //   ref.listen<EnumActivityState>(
+  //     enumActivityProvider,
+  //     (previous, next) {
+  //       if (next.status == ActivityStatus.failure && context.mounted) {
+  //         ErrorDialog.show(context, next.error);
+  //       }
+  //     },
+  //   );
+  // }
 
   //
 }
