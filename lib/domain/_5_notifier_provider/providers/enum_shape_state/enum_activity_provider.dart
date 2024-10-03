@@ -1,8 +1,9 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../../data/models/activity.dart';
-import '../../../data/models/enum_activity_state.dart';
-import 'dio_provider.dart';
+import '../../../../data/models/enum_activity_state.dart';
+import '../dio_provider.dart';
+
 
 part 'enum_activity_provider.g.dart';
 

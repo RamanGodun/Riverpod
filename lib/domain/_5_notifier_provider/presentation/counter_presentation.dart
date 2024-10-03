@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_project/widgets/text_widgets.dart';
 
-// import '../providers/counter_provider.dart'; //without code generation use this
-import '../providers/counter_provider_gen.dart';
+import '../providers/counter/counter_provider_gen.dart';
+// import '../providers/counter/counter_provider.dart'; //without code generation use this
 
 class CounterPageOnNotifier extends ConsumerWidget {
   const CounterPageOnNotifier({super.key});
