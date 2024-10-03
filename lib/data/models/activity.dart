@@ -1,13 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
-// pts, pts  => autocompletion
 part 'activity.freezed.dart';
 part 'activity.g.dart';
 
-// fdata () => autocompletion
 @freezed
 class Activity with _$Activity {
+  // The main factory for the Activity model, defining its properties.
+  // Each field is required to ensure that the activity is fully defined.
   const factory Activity({
     required String activity,
     required double availability,
@@ -21,11 +21,11 @@ class Activity with _$Activity {
     required String key,
   }) = _Activity;
 
-
-// fromJson => => autocompletion
+  // Factory to create an Activity instance from a JSON response.
   factory Activity.fromJson(Map<String, dynamic> json) =>
       _$ActivityFromJson(json);
 
+  // Factory to create an empty Activity object, used for initial or default states.
   factory Activity.empty() => const Activity(
         activity: '',
         availability: 0.0,
@@ -40,6 +40,8 @@ class Activity with _$Activity {
       );
 }
 
+// Predefined list of activity types, used for filtering or selecting activities.
+// These types can be passed as parameters in API requests or used in UI elements.
 final activityTypes = [
   "education",
   "recreational",
