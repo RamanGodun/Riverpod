@@ -1,6 +1,6 @@
 /*
 ===============================
-## Use Cases of NotifierProvider:
+## Use Cases of Async NotifierProvider:
 
 1. **Managing Complex States**:
    NotifierProvider enables efficient management of complex states that may contain various logic paths dependent on multiple factors.
@@ -55,4 +55,49 @@
    when dependent providers change, ensuring smooth interaction.
 
 ===============================
+
+
+
+
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('NotifierProvider'),
+      ),
+      body: Center(
+        child: ListView(
+          padding: const EdgeInsets.all(20),
+          shrinkWrap: true,
+          children: const [
+            CustomButton(
+              title: 'Counter',
+              child: CounterPageOnNotifier(),
+            ),
+            CustomButton(
+              title: 'Enum Activity',
+              child: EnumActivityPage(),
+            ),
+            CustomButton(
+              title: 'Sealed Activity',
+              child: SealedActivityPage(),
+            ),
+            CustomButton(
+              title: 'Ticker',
+              child: TickerPage(),
+            ),
+            CustomButton(
+              title: 'Todo',
+              child: TodosPage(),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
 */

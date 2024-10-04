@@ -5,11 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_project/widgets/mini_widgets.dart';
 import 'package:riverpod_project/widgets/text_widgets.dart';
 
+import '../../../data/enums.dart';
 import '../../../data/models/activity.dart';
-import '../../../data/models/enum_activity_state.dart';
 // import '../../../widgets/error_dialog.dart'; // uses when use error dialog (without separate provider)
 import '../providers/dialog_provider.dart';
-import '../providers/enum_shape_state/enum_activity_provider.dart';
+import '../providers/enum_based_state/enum_activity_provider.dart';
 import 'activity_widget.dart';
 
 // StatefulWidget is used here to handle widget lifecycle and state changes
@@ -61,7 +61,12 @@ class _EnumActivityPageState extends ConsumerState<EnumActivityPage> {
           ),
           // Button to refresh the enumActivityProvider and reset its state.
           IconButton(
-            onPressed: () => ref.invalidate(enumActivityProvider),
+            // onPressed: () => ref.invalidate(enumActivityProvider), //or can use this, depends what behavior we want
+            onPressed: () => Future.delayed(
+                Duration.zero,
+                () => ref
+                    .read(enumActivityProvider.notifier)
+                    .fetchActivity(activityTypes[0])),
             icon: const Icon(Icons.refresh),
           ),
         ],

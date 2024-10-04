@@ -5,8 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_project/widgets/mini_widgets.dart';
 import 'package:riverpod_project/widgets/text_widgets.dart';
 import '../../../data/models/activity.dart';
-import '../providers/sealed_shape_state/sealed_activity_provider.dart';
-import '../providers/sealed_shape_state/sealed_activity_state.dart';
+import '../providers/sealed_class_based_state/sealed_activity_provider.dart';
+import '../providers/sealed_class_based_state/sealed_activity_state.dart';
 import 'activity_widget.dart';
 
 // The main page that manages and displays the state of SealedActivityNotifier.

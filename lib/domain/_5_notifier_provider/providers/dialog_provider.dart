@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../data/enums.dart';
 import '../../../data/models/enum_activity_state.dart';
 import '../../../widgets/error_dialog.dart';
-import 'enum_shape_state/enum_activity_provider.dart';
+import 'enum_based_state/enum_activity_provider.dart';
 
 final errorHandlingProvider = Provider.autoDispose<ErrorHandlingService>((ref) {
   return ErrorHandlingService();
