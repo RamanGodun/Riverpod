@@ -46,7 +46,7 @@ class EnumAsyncActivityPage extends ConsumerWidget {
         ActivityStatus.initial => const Center(
             child: TextWidget('Get some activity', TextType.titleMedium)),
         // Loading state, displaying a loading widget.
-        ActivityStatus.loading => AppMiniWidgets.loadingWidget(),
+        ActivityStatus.loading => const AppMiniWidgets(MWType.loading),
         // Failure state, displaying an error widget or a fallback activity.
         //  when no available previous data => error widget
         // ! when failure happens, then available previous data are shown (good pattern)
@@ -54,8 +54,8 @@ class EnumAsyncActivityPage extends ConsumerWidget {
           asyncActivityState.activities.first == Activity.empty()
               ? Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: AppMiniWidgets.errorWidget(
-                      context, asyncActivityState.error))
+                  child: AppMiniWidgets(MWType.error,
+                      error: asyncActivityState.error))
               : ActivityWidget(activity: asyncActivityState.activities.first),
         // Success state, displaying the fetched activity.
         ActivityStatus.success =>

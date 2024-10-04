@@ -58,11 +58,11 @@ class _SealedAsyncActivityPageState
       ),
       body: activityState.when(
         // Loading state, displaying a loading widget.
-        loading: () => AppMiniWidgets.loadingWidget(),
+        loading: () => const AppMiniWidgets(MWType.loading),
 
         // Failure state, displaying an error widget or fallback activity.
         failure: (error) => prevWidget == null
-            ? AppMiniWidgets.errorWidget(context, 'Get some activity')
+            ? const AppMiniWidgets(MWType.error, error: 'Get some activity')
             : prevWidget!,
 
         // Success state, displaying the fetched activity.

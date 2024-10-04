@@ -25,9 +25,9 @@ class TickerPage extends ConsumerWidget {
           data: (ticks) =>
               TextWidget(Helpers.formatTimer(ticks), TextType.headline),
           // Display error widget if the Stream encounters an error
-          error: (e, st) => AppMiniWidgets.errorWidget(context, e),
+          error: (e, st) => AppMiniWidgets(MWType.error, error: e),
           // Display loading widget while the Stream is still loading (initial state)
-          loading: () => AppMiniWidgets.loadingWidget(),
+          loading: () => const AppMiniWidgets(MWType.loading),
         ),
       ),
     );

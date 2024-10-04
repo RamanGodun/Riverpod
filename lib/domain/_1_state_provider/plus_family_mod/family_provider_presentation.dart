@@ -79,9 +79,9 @@ class FamilyPage extends ConsumerWidget {
             context: context,
             builder: (context) => Center(
               child: AlertDialog(
-                  content: AppMiniWidgets.errorWidget(
-                context,
-                'Number $next is dangerous!',
+                  content: AppMiniWidgets(
+                MWType.error,
+                error: 'Number $next is dangerous!',
               )),
             ),
           );

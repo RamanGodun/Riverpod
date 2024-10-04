@@ -66,9 +66,9 @@ class UserDetailPage extends ConsumerWidget {
           );
         },
         // In case of error, display the error widget
-        error: (e, st) => AppMiniWidgets.errorWidget(context, e),
+        error: (e, st) => AppMiniWidgets(MWType.error, error: e),
         // Show loading indicator while data is being fetched
-        loading: () => AppMiniWidgets.loadingWidget(),
+        loading: () => const AppMiniWidgets(MWType.loading),
       ),
     );
   }

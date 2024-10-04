@@ -10,10 +10,7 @@ class ErrorDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content: AppMiniWidgets.errorWidget(
-        context,
-        errorMessage,
-      ),
+      content: AppMiniWidgets(MWType.error, error: errorMessage),
     );
   }
 

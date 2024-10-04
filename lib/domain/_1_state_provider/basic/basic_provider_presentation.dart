@@ -53,9 +53,9 @@ class BasicPage extends ConsumerWidget {
             context: context,
             builder: (context) => AlertDialog(
               content: Center(
-                  child: AppMiniWidgets.errorWidget(
-                context,
-                'WARNING: $next times!',
+                  child: AppMiniWidgets(
+                MWType.error,
+                error: 'WARNING: $next times!',
               )),
             ),
           );

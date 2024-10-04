@@ -68,8 +68,8 @@ class UserListPage extends ConsumerWidget {
             },
           );
         },
-        error: (error, stTrace) => AppMiniWidgets.errorWidget(context, error),
-        loading: () => AppMiniWidgets.loadingWidget(),
+        error: (error, stTrace) => AppMiniWidgets(MWType.error, error: error),
+        loading: () => const AppMiniWidgets(MWType.loading),
       ),
       /*
         * ALTERNATIVE syntax

@@ -57,7 +57,7 @@ class _SealedActivityPageState extends ConsumerState<SealedActivityPage> {
         initial: () => const Center(
           child: TextWidget('Get some activity', TextType.titleMedium),
         ),
-        loading: () => AppMiniWidgets.loadingWidget(),
+        loading: () => const AppMiniWidgets(MWType.loading),
         failure: (error) => prevWidget == null
             ? const Center(
                 child: TextWidget('Get some activity', TextType.error),
@@ -113,7 +113,7 @@ class _SealedActivityPageState extends ConsumerState<SealedActivityPage> {
               context: context,
               builder: (context) {
                 return AlertDialog(
-                  content: AppMiniWidgets.errorWidget(context, error),
+                  content: AppMiniWidgets(MWType.error, error: error),
                 );
               },
             );
