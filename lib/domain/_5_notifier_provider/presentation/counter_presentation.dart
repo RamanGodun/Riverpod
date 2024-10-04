@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_project/widgets/text_widgets.dart';
 
+import '../../../widgets/text_widget.dart';
 import '../providers/counter/counter_provider_gen.dart';
 // import '../providers/counter/counter_provider.dart'; //without code generation use this
 
@@ -15,21 +15,22 @@ class CounterPageOnNotifier extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: TextWidgets.titleSmallText(context, 'Counter'),
+        title: const TextWidget('Counter', TextType.titleSmall),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextWidgets.headlineText(context, '$counter'),
+            TextWidget('$counter', TextType.headline),
             const SizedBox(height: 20),
             OutlinedButton(
-                onPressed:
-                    () => // ref.read(counterOnNotifierProvider(10).notifier).increment()  //without code generation use this
-                        ref
-                            .read(counterOnNotifierProvider(10).notifier)
-                            .increment(),
-                child: TextWidgets.titleMediumText(context, 'Increment')),
+              onPressed:
+                  () => // ref.read(counterOnNotifierProvider(10).notifier).increment()  //without code generation use this
+                      ref
+                          .read(counterOnNotifierProvider(10).notifier)
+                          .increment(),
+              child: const TextWidget('Increment', TextType.titleMedium),
+            ),
           ],
         ),
       ),

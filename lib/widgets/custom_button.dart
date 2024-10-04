@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_project/widgets/text_widgets.dart';
 
 import '../data/helpers.dart';
+import 'text_widget.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -18,7 +18,7 @@ class CustomButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5.0),
       child: OutlinedButton(
         onPressed: () => Helpers.pushTo(context, child),
-        child: TextWidgets.buttonText(context, title),
+        child: TextWidget(title, TextType.button),
       ),
     );
   }

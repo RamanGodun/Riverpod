@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../widgets/text_field.dart';
-import '../../widgets/text_widgets.dart';
 // import 'state_notifier_provider.dart'; // when using StateNotifier provider
+import '../../widgets/text_widget.dart';
 import 'change_notifier_provider.dart';
 
 /// The `TodosPage` is responsible for displaying a list of todos.
@@ -22,7 +22,7 @@ class TodosPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         // Custom text widget for the app bar title.
-        title: TextWidgets.titleMediumText(context, 'Todos'),
+        title: const TextWidget('Todos', TextType.titleMedium),
       ),
       body: Column(
         children: [
@@ -43,8 +43,7 @@ class TodosPage extends ConsumerWidget {
                         // Using ChangeNotifierProvider to toggle the todo's completed state.
                         ref.read(todosProvider).toggleTodo(todo.id),
                     // ref.read(todosProvider.notifier).toggleTodo(todo.id) //when use state,notifier provider
-                    title:
-                        TextWidgets.titleMediumText(context, todo.description),
+                    title: TextWidget(todo.description, TextType.titleMedium),
                     // Icon button to delete a todo from the list.
                     secondary: IconButton(
                       onPressed: () =>

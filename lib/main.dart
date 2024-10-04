@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'domain/_5_notifier_provider/presentation/enum_activity_presentation.dart';
 // import 'domain/_5_notifier_provider/presentation/sealed_activity_presentation.dart';
 
-import 'domain/_6_async_provider/counter/counter_page.dart';
+import 'domain/_7_async_notofoer_provider/counter/counter_presentation.dart';
 import 'domain/_6_async_provider/enum_based_async_state/enum_async_activity_presentation.dart';
 import 'domain/_6_async_provider/sealed_async_activity/sealed_async_activity_presentation.dart';
 import 'widgets/custom_button.dart';

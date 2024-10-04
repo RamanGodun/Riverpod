@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_project/widgets/mini_widgets.dart';
 
-import '../../../data/app_constants.dart';
-import '../../../widgets/text_widgets.dart';
+import '../../../widgets/text_widget.dart';
 import '_basic_provider.dart';
 
 class BasicPage extends ConsumerWidget {
@@ -18,21 +18,14 @@ class BasicPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: TextWidgets.bodyText(context, 'StateProvider'),
+        title: const TextWidget('StateProvider', TextType.body),
       ),
       body: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            TextWidgets.headlineText(
-              context,
-              "You've already clicked ",
-            ),
-            TextWidgets.headlineText(
-              context,
-              '$value times',
-              color: AppConstants.errorColor,
-            )
+            const TextWidget('You\'ve already clicked', TextType.headline),
+            TextWidget('$value times', TextType.headline)
           ],
         ),
       ),
@@ -60,12 +53,10 @@ class BasicPage extends ConsumerWidget {
             context: context,
             builder: (context) => AlertDialog(
               content: Center(
-                child: TextWidgets.headlineText(
-                  context,
-                  'WARNING: $next times!',
-                  color: AppConstants.errorColor,
-                ),
-              ),
+                  child: AppMiniWidgets.errorWidget(
+                context,
+                'WARNING: $next times!',
+              )),
             ),
           );
         }

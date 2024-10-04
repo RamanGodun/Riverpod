@@ -2,7 +2,7 @@ import 'package:bulleted_list/bulleted_list.dart';
 import 'package:flutter/material.dart';
 
 import '../../../data/models/activity.dart';
-import '../../../widgets/text_widgets.dart';
+import '../../../widgets/text_widget.dart';
 
 // Widget to display the details of a single activity.
 // This widget formats and presents the activity data in a bulleted list.
@@ -17,7 +17,7 @@ class ActivityWidget extends StatelessWidget {
       padding: const EdgeInsets.all(25),
       children: [
         // Display the type of the activity in a headline style.
-        TextWidgets.headlineText(context, activity.type),
+        TextWidget(activity.type, TextType.headline),
         const Divider(),
         // Display detailed information about the activity using a bulleted list.
         BulletedList(

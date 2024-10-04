@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_project/domain/_1_state_provider/plus_family_mod/_family_provider.dart';
+import 'package:riverpod_project/widgets/mini_widgets.dart';
 
-import '../../../data/app_constants.dart';
-import '../../../widgets/text_widgets.dart';
+import '../../../widgets/text_widget.dart';
 
 class FamilyPage extends ConsumerWidget {
   const FamilyPage({super.key});
@@ -26,19 +26,17 @@ class FamilyPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: TextWidgets.bodyText(context, 'FamilyStateProvider'),
+        title: const TextWidget('FamilyStateProvider', TextType.titleMedium),
       ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            TextWidgets.buttonText(
-              context,
-              'Current value1 is: $valueIncrementation',
-            ),
+            TextWidget(
+                'Current value1 is: $valueIncrementation', TextType.button),
             const SizedBox(height: 20),
             OutlinedButton(
-              child: TextWidgets.buttonText(context, 'Increment (+10)'),
+              child: const TextWidget('Increment (+10)', TextType.titleMedium),
               onPressed: () {
                 // Increment the state by 10 using familyCounterProvider
                 ref
@@ -47,13 +45,11 @@ class FamilyPage extends ConsumerWidget {
               },
             ),
             const SizedBox(height: 120),
-            TextWidgets.buttonText(
-              context,
-              'Current value2 is: $valueDecrementation',
-            ),
+            TextWidget(
+                'Current value2 is: $valueDecrementation', TextType.button),
             const SizedBox(height: 20),
             OutlinedButton(
-              child: TextWidgets.buttonText(context, 'Decrement (-10)'),
+              child: const TextWidget('Decrement (-10)', TextType.button),
               onPressed: () {
                 // Decrement the state by 10 using familyCounterProvider
                 ref
@@ -83,15 +79,10 @@ class FamilyPage extends ConsumerWidget {
             context: context,
             builder: (context) => Center(
               child: AlertDialog(
-                content: Align(
-                  alignment: Alignment.center,
-                  child: TextWidgets.headlineText(
-                    context,
-                    'Number $next is dangerous!',
-                    color: AppConstants.errorColor,
-                  ),
-                ),
-              ),
+                  content: AppMiniWidgets.errorWidget(
+                context,
+                'Number $next is dangerous!',
+              )),
             ),
           );
         }

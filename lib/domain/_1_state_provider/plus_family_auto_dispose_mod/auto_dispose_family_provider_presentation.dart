@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_project/widgets/mini_widgets.dart';
 
-import '../../../widgets/text_widgets.dart';
+import '../../../widgets/text_widget.dart';
 import '_auto_dispose_family_provider.dart';
-import '../../../data/app_constants.dart';
 
 class AutoDisposeFamilyPage extends ConsumerWidget {
   const AutoDisposeFamilyPage({super.key});
@@ -26,19 +26,18 @@ class AutoDisposeFamilyPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: TextWidgets.bodyText(context, 'AutoDispose FamilyStateProvider'),
+        title:
+            const TextWidget('AutoDispose FamilyStateProvider', TextType.body),
       ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            TextWidgets.buttonText(
-              context,
-              'Current value1 is: $valueIncrementation',
-            ),
+            TextWidget(
+                'Current value1 is: $valueIncrementation', TextType.button),
             const SizedBox(height: 20),
             OutlinedButton(
-              child: TextWidgets.buttonText(context, 'Increment (+10)'),
+              child: const TextWidget('Increment (+10)', TextType.button),
               onPressed: () {
                 // Increment the state by 10 using familyAutoDisposedCounterProvider
                 ref
@@ -49,13 +48,11 @@ class AutoDisposeFamilyPage extends ConsumerWidget {
               },
             ),
             const SizedBox(height: 120),
-            TextWidgets.buttonText(
-              context,
-              'Current value2 is: $valueDecrementation',
-            ),
+            TextWidget(
+                'Current value2 is: $valueDecrementation', TextType.button),
             const SizedBox(height: 20),
             OutlinedButton(
-              child: TextWidgets.buttonText(context, 'Decrement (-10)'),
+              child: const TextWidget('Decrement (-10)', TextType.button),
               onPressed: () {
                 // Decrement the state by 10 using familyAutoDisposedCounterProvider
                 ref
@@ -87,15 +84,10 @@ class AutoDisposeFamilyPage extends ConsumerWidget {
             context: context,
             builder: (context) => Center(
               child: AlertDialog(
-                content: Align(
-                  alignment: Alignment.center,
-                  child: TextWidgets.headlineText(
-                    context,
-                    'Number $next is dangerous!',
-                    color: AppConstants.errorColor,
-                  ),
-                ),
-              ),
+                  content: AppMiniWidgets.errorWidget(
+                context,
+                'Number $next is dangerous!',
+              )),
             ),
           );
         }

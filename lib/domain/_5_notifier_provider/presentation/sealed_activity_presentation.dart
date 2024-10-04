@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_project/widgets/mini_widgets.dart';
-import 'package:riverpod_project/widgets/text_widgets.dart';
 import '../../../data/models/activity.dart';
+import '../../../widgets/text_widget.dart';
 import '../providers/sealed_class_based_state/sealed_activity_provider.dart';
 import '../providers/sealed_class_based_state/sealed_activity_state.dart';
 import 'activity_widget.dart';
@@ -42,7 +42,7 @@ class _SealedActivityPageState extends ConsumerState<SealedActivityPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: TextWidgets.titleSmallText(context, 'SealedActivityNotifier'),
+        title: const TextWidget('SealedActivityNotifier', TextType.titleSmall),
         actions: [
           // Refresh button that invalidates the current state and forces a reload.
           IconButton(
@@ -54,13 +54,13 @@ class _SealedActivityPageState extends ConsumerState<SealedActivityPage> {
       // Render the UI based on the current state using the `when` method.
       //* This ensures that the appropriate widget is shown for each state.
       body: activityState.when(
-        initial: () => Center(
-          child: TextWidgets.titleMediumText(context, 'Get some activity'),
+        initial: () => const Center(
+          child: TextWidget('Get some activity', TextType.titleMedium),
         ),
         loading: () => AppMiniWidgets.loadingWidget(),
         failure: (error) => prevWidget == null
-            ? Center(
-                child: TextWidgets.errorText(context, 'Get some activity'),
+            ? const Center(
+                child: TextWidget('Get some activity', TextType.error),
               )
             : prevWidget!,
         //* Cache the success widget so that it can be displayed in case of future failures.
@@ -93,7 +93,7 @@ class _SealedActivityPageState extends ConsumerState<SealedActivityPage> {
               .read(sealedActivityProvider.notifier)
               .fetchActivity(activityTypes[randomNumber]);
         },
-        label: TextWidgets.titleMediumText(context, 'New Activity'),
+        label: const TextWidget('New Activity', TextType.titleMedium),
       ),
     );
   }

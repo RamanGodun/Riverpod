@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../data/app_constants.dart';
-import '../../../widgets/text_widgets.dart';
+import '../../../widgets/text_widget.dart';
 import '_auto_dispose_provider.dart';
 
 class AutoDisposePage extends ConsumerWidget {
@@ -18,19 +18,16 @@ class AutoDisposePage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: TextWidgets.bodyText(context, 'AutoDisposed StateProvider'),
+        title: const TextWidget('AutoDisposed StateProvider', TextType.body),
       ),
       body: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            TextWidgets.headlineText(
-              context,
-              "You've already clicked ",
-            ),
-            TextWidgets.headlineText(
-              context,
+            const TextWidget("You've already clicked ", TextType.headline),
+            TextWidget(
               '$value times',
+              TextType.headline,
               color: AppConstants.errorColor,
             ),
           ],
@@ -67,9 +64,9 @@ class AutoDisposePage extends ConsumerWidget {
             context: context,
             builder: (context) => AlertDialog(
               content: Center(
-                child: TextWidgets.headlineText(
-                  context,
+                child: TextWidget(
                   'DANGER: $next times!',
+                  TextType.headline,
                   color: AppConstants.errorColor,
                 ),
               ),

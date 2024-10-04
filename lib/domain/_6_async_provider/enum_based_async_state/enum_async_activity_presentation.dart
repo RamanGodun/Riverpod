@@ -3,12 +3,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_project/widgets/mini_widgets.dart';
-import 'package:riverpod_project/widgets/text_widgets.dart';
 
 import '../../../data/enums.dart';
 import '../../../data/models/activity.dart';
 import '../../../data/models/enum_based_async_activity_state.dart';
 import '../../../widgets/error_dialog.dart';
+import '../../../widgets/text_widget.dart';
 import '../../_5_notifier_provider/presentation/activity_widget.dart';
 import 'enum_async_activity_provider.dart';
 
@@ -27,7 +27,7 @@ class EnumAsyncActivityPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title:
-            TextWidgets.titleMediumText(context, 'EnumAsyncActivityNotifier'),
+            const TextWidget('EnumAsyncActivityNotifier', TextType.titleMedium),
         actions: [
           IconButton(
             onPressed: () => ref.read(myCounterProvider.notifier).increment(),
@@ -43,8 +43,8 @@ class EnumAsyncActivityPage extends ConsumerWidget {
       // Different UI is rendered based on the current state of the provider.
       body: switch (asyncActivityState.status) {
         // Initial state, encouraging the user to fetch an activity.
-        ActivityStatus.initial => Center(
-            child: TextWidgets.titleMediumText(context, 'Get some activity')),
+        ActivityStatus.initial => const Center(
+            child: TextWidget('Get some activity', TextType.titleMedium)),
         // Loading state, displaying a loading widget.
         ActivityStatus.loading => AppMiniWidgets.loadingWidget(),
         // Failure state, displaying an error widget or a fallback activity.
@@ -69,7 +69,7 @@ class EnumAsyncActivityPage extends ConsumerWidget {
               .read(enumAsyncActivityProvider.notifier)
               .fetchActivity(activityTypes[randomNumber]);
         },
-        label: TextWidgets.titleMediumText(context, 'New Activity'),
+        label: const TextWidget('New Activity', TextType.titleMedium),
       ),
     );
   }

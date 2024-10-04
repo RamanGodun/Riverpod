@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_project/widgets/mini_widgets.dart';
-import 'package:riverpod_project/widgets/text_widgets.dart';
 
 import '../../../data/app_constants.dart';
+import '../../../widgets/text_widget.dart';
 import '../providers/users_providers_gen.dart'; // In case of code generation
 // import '../providers/users_providers.dart'; // In case we don't use code generation
 
@@ -17,7 +17,7 @@ class UserDetailPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: TextWidgets.titleSmallText(context, 'User Detail'),
+        title: const TextWidget('User Detail', TextType.titleMedium),
       ),
       body: userDetail.when(
         data: (user) {
@@ -45,7 +45,7 @@ class UserDetailPage extends ConsumerWidget {
                   if (index == 0) {
                     return Column(
                       children: [
-                        TextWidgets.headlineText(context, user.name),
+                        TextWidget(user.name, TextType.headline),
                         const Divider(),
                       ],
                     );

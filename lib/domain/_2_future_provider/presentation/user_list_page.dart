@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_project/widgets/custom_list_tile.dart';
-import 'package:riverpod_project/widgets/text_widgets.dart';
 
 import '../../../data/helpers.dart';
 import '../../../widgets/mini_widgets.dart';
+import '../../../widgets/text_widget.dart';
 import '../providers/users_providers_gen.dart'; // In case of code generation
 // import '../providers/users_providers.dart'; // In case we don't use code generation
 import 'user_detail_page.dart';
@@ -60,8 +60,8 @@ class UserListPage extends ConsumerWidget {
                     Helpers.pushTo(context, UserDetailPage(userId: user.id)),
                 child: AppListTile(
                   leading: CircleAvatar(
-                      child: TextWidgets.titleSmallText(
-                          context, user.id.toString())),
+                    child: TextWidget(user.id.toString(), TextType.titleSmall),
+                  ),
                   title: user.name,
                 ),
               );

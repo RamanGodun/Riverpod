@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'text_widgets.dart';
+import 'text_widget.dart';
 
 abstract class AppMiniWidgets {
 /*
@@ -16,7 +16,12 @@ abstract class AppMiniWidgets {
 
   static Widget errorWidget(BuildContext context, Object e, {StackTrace? st}) {
     //! it's necessary to handle StackTrace st value
-    return Center(child: TextWidgets.errorText(context, e.toString()));
+    return Center(
+      child: TextWidget(
+        e.toString(),
+        TextType.error,
+      ),
+    );
   }
   /*
    */

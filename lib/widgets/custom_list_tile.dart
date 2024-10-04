@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_project/widgets/text_widgets.dart';
+
+import 'text_widget.dart';
 
 class AppListTile extends StatelessWidget {
   final Widget leading;
@@ -15,7 +16,7 @@ class AppListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: leading,
-      title: TextWidgets.titleMediumText(context, title),
+      title: TextWidget(title, TextType.titleMedium),
     );
   }
 }

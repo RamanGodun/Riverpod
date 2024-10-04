@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_project/widgets/mini_widgets.dart';
 import '../../../data/models/activity.dart';
-import '../../../widgets/text_widgets.dart';
+import '../../../widgets/text_widget.dart';
 import '../../_5_notifier_provider/presentation/activity_widget.dart';
 import '_sealed_async_activity_provider.dart';
 import '_sealed_async_activity_state.dart';
@@ -45,8 +45,10 @@ class _SealedAsyncActivityPageState
 
     return Scaffold(
       appBar: AppBar(
-        title:
-            TextWidgets.titleMediumText(context, 'SealedAsyncActivityNotifier'),
+        title: const TextWidget(
+          'SealedAsyncActivityNotifier',
+          TextType.titleMedium,
+        ),
         actions: [
           IconButton(
             onPressed: () => ref.invalidate(sealedAsyncActivityProvider),
@@ -86,7 +88,7 @@ class _SealedAsyncActivityPageState
               .read(sealedAsyncActivityProvider.notifier)
               .fetchActivity(activityTypes[randomNumber]);
         },
-        label: TextWidgets.titleMediumText(context, 'New Activity'),
+        label: const TextWidget('New Activity', TextType.titleMedium),
       ),
     );
   }

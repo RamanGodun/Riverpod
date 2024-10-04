@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_project/widgets/text_widgets.dart';
 
+import '../../../widgets/text_widget.dart';
 import '../providers/users_providers_gen.dart'; // In case of code generation
 // import '../providers/users_providers.dart'; // In case we don't use code generation
 
@@ -16,7 +16,7 @@ class FamilyDisposePage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: TextWidgets.titleSmallText(context, 'Family Dispose'),
+        title: const TextWidget('Family Dispose', TextType.titleMedium),
       ),
       body: Center(
         child: ListView(
@@ -29,14 +29,14 @@ class FamilyDisposePage extends ConsumerWidget {
               onPressed: () => ref.invalidate(userDetailProvider),
               // OR, we can dispose a specific instance of the family provider
               // onPressed: () => ref.invalidate(userDetailProvider(2)),
-              child: TextWidgets.titleMediumText(context, 'Invalidate'),
+              child: const TextWidget('Invalidate', TextType.titleMedium),
             ),
             const SizedBox(height: 20),
             OutlinedButton(
               // Refresh a specific instance of the family provider (in this case, user 1)
               // This re-executes the provider logic and fetches fresh data
               onPressed: () => ref.refresh(userDetailProvider(1)),
-              child: TextWidgets.titleMediumText(context, 'Refresh'),
+              child: const TextWidget('Refresh', TextType.titleMedium),
             ),
           ],
         ),
