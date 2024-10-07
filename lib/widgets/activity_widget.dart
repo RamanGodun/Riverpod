@@ -1,8 +1,8 @@
 import 'package:bulleted_list/bulleted_list.dart';
 import 'package:flutter/material.dart';
 
-import '../../../data/models/activity.dart';
-import '../../../widgets/text_widget.dart';
+import '../data/models/activity.dart';
+import 'text_widget.dart';
 
 // Widget to display the details of a single activity.
 // This widget formats and presents the activity data in a bulleted list.
@@ -14,7 +14,7 @@ class ActivityWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: const EdgeInsets.all(25),
+      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
       children: [
         // Display the type of the activity in a headline style.
         TextWidget(activity.type, TextType.headline),
@@ -36,7 +36,7 @@ class ActivityWidget extends StatelessWidget {
             'kidFriendly: ${activity.kidFriendly}',
             'key: ${activity.key}',
           ],
-          style: Theme.of(context).textTheme.titleLarge,
+          style: Theme.of(context).textTheme.titleMedium,
         ),
       ],
     );

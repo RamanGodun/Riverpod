@@ -15,7 +15,7 @@
 
 6.Can be enum-based-shape state, or sealed-class-shape state
 
-7.
+7. When error occurs, then take previous data, stored in AsyncValue ( Loading state keeps it?)
 
 ===============================
 

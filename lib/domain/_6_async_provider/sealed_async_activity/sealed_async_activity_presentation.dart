@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_project/widgets/mini_widgets.dart';
 import '../../../data/models/activity.dart';
 import '../../../widgets/text_widget.dart';
-import '../../_5_notifier_provider/presentation/activity_widget.dart';
+import '../../../widgets/activity_widget.dart';
 import '_sealed_async_activity_provider.dart';
 import '_sealed_async_activity_state.dart';
 
@@ -23,23 +23,7 @@ class _SealedAsyncActivityPageState
 
   @override
   Widget build(BuildContext context) {
-    ref.listen<SealedAsyncActivityState>(
-      sealedAsyncActivityProvider,
-      (previous, next) {
-        switch (next) {
-          case SealedAsyncActivityFailure(error: String error):
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  content: Text(error),
-                );
-              },
-            );
-          case _:
-        }
-      },
-    );
+    showDialogWhenErrorsOccurs(context);
 
     final activityState = ref.watch(sealedAsyncActivityProvider);
 
@@ -90,6 +74,27 @@ class _SealedAsyncActivityPageState
         },
         label: const TextWidget('New Activity', TextType.titleMedium),
       ),
+    );
+  }
+
+  // * METHODS
+  void showDialogWhenErrorsOccurs(BuildContext context) {
+    ref.listen<SealedAsyncActivityState>(
+      sealedAsyncActivityProvider,
+      (previous, next) {
+        switch (next) {
+          case SealedAsyncActivityFailure(error: String error):
+            showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  content: AppMiniWidgets(MWType.error, error: error),
+                );
+              },
+            );
+          case _:
+        }
+      },
     );
   }
 }

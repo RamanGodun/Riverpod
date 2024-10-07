@@ -10,7 +10,7 @@ import '../../../data/models/activity.dart';
 import '../../../widgets/text_widget.dart';
 import '../providers/dialog_provider.dart';
 import '../providers/enum_based_state/enum_activity_provider.dart';
-import 'activity_widget.dart';
+import '../../../widgets/activity_widget.dart';
 
 // StatefulWidget is used here to handle widget lifecycle and state changes
 // when interacting with Riverpod providers.

@@ -9,7 +9,7 @@ import '../../../data/models/activity.dart';
 import '../../../data/models/enum_based_async_activity_state.dart';
 import '../../../widgets/error_dialog.dart';
 import '../../../widgets/text_widget.dart';
-import '../../_5_notifier_provider/presentation/activity_widget.dart';
+import '../../../widgets/activity_widget.dart';
 import 'enum_async_activity_provider.dart';
 
 class EnumAsyncActivityPage extends ConsumerWidget {

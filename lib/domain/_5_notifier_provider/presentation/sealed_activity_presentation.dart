@@ -7,7 +7,7 @@ import '../../../data/models/activity.dart';
 import '../../../widgets/text_widget.dart';
 import '../providers/sealed_class_based_state/sealed_activity_provider.dart';
 import '../providers/sealed_class_based_state/sealed_activity_state.dart';
-import 'activity_widget.dart';
+import '../../../widgets/activity_widget.dart';
 
 // The main page that manages and displays the state of SealedActivityNotifier.
 class SealedActivityPage extends ConsumerStatefulWidget {
