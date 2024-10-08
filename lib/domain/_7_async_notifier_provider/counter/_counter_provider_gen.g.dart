@@ -6,7 +6,7 @@ part of '_counter_provider_gen.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$counterHash() => r'4d0ab3dce52c79b7f43de770c9b51f7b703645d1';
+String _$counterHash() => r'0d6ecfb1753d4ccd5415a413d43f7adcf88ecb1d';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,11 +29,11 @@ class _SystemHash {
   }
 }
 
-abstract class _$Counter extends BuildlessAutoDisposeNotifier<int> {
-  late final int initialValue;
+abstract class _$Counter extends BuildlessAutoDisposeAsyncNotifier<int> {
+  late final int arg;
 
-  int build(
-    int initialValue,
+  FutureOr<int> build(
+    int arg,
   );
 }
 
@@ -42,16 +42,16 @@ abstract class _$Counter extends BuildlessAutoDisposeNotifier<int> {
 const counterProvider = CounterFamily();
 
 /// See also [Counter].
-class CounterFamily extends Family<int> {
+class CounterFamily extends Family<AsyncValue<int>> {
   /// See also [Counter].
   const CounterFamily();
 
   /// See also [Counter].
   CounterProvider call(
-    int initialValue,
+    int arg,
   ) {
     return CounterProvider(
-      initialValue,
+      arg,
     );
   }
 
@@ -60,7 +60,7 @@ class CounterFamily extends Family<int> {
     covariant CounterProvider provider,
   ) {
     return call(
-      provider.initialValue,
+      provider.arg,
     );
   }
 
@@ -80,12 +80,13 @@ class CounterFamily extends Family<int> {
 }
 
 /// See also [Counter].
-class CounterProvider extends AutoDisposeNotifierProviderImpl<Counter, int> {
+class CounterProvider
+    extends AutoDisposeAsyncNotifierProviderImpl<Counter, int> {
   /// See also [Counter].
   CounterProvider(
-    int initialValue,
+    int arg,
   ) : this._internal(
-          () => Counter()..initialValue = initialValue,
+          () => Counter()..arg = arg,
           from: counterProvider,
           name: r'counterProvider',
           debugGetCreateSourceHash:
@@ -94,7 +95,7 @@ class CounterProvider extends AutoDisposeNotifierProviderImpl<Counter, int> {
                   : _$counterHash,
           dependencies: CounterFamily._dependencies,
           allTransitiveDependencies: CounterFamily._allTransitiveDependencies,
-          initialValue: initialValue,
+          arg: arg,
         );
 
   CounterProvider._internal(
@@ -104,17 +105,17 @@ class CounterProvider extends AutoDisposeNotifierProviderImpl<Counter, int> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.initialValue,
+    required this.arg,
   }) : super.internal();
 
-  final int initialValue;
+  final int arg;
 
   @override
-  int runNotifierBuild(
+  FutureOr<int> runNotifierBuild(
     covariant Counter notifier,
   ) {
     return notifier.build(
-      initialValue,
+      arg,
     );
   }
 
@@ -123,47 +124,48 @@ class CounterProvider extends AutoDisposeNotifierProviderImpl<Counter, int> {
     return ProviderOverride(
       origin: this,
       override: CounterProvider._internal(
-        () => create()..initialValue = initialValue,
+        () => create()..arg = arg,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        initialValue: initialValue,
+        arg: arg,
       ),
     );
   }
 
   @override
-  AutoDisposeNotifierProviderElement<Counter, int> createElement() {
+  AutoDisposeAsyncNotifierProviderElement<Counter, int> createElement() {
     return _CounterProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is CounterProvider && other.initialValue == initialValue;
+    return other is CounterProvider && other.arg == arg;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, initialValue.hashCode);
+    hash = _SystemHash.combine(hash, arg.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
-mixin CounterRef on AutoDisposeNotifierProviderRef<int> {
-  /// The parameter `initialValue` of this provider.
-  int get initialValue;
+mixin CounterRef on AutoDisposeAsyncNotifierProviderRef<int> {
+  /// The parameter `arg` of this provider.
+  int get arg;
 }
 
 class _CounterProviderElement
-    extends AutoDisposeNotifierProviderElement<Counter, int> with CounterRef {
+    extends AutoDisposeAsyncNotifierProviderElement<Counter, int>
+    with CounterRef {
   _CounterProviderElement(super.provider);
 
   @override
-  int get initialValue => (origin as CounterProvider).initialValue;
+  int get arg => (origin as CounterProvider).arg;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

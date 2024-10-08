@@ -10,6 +10,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'domain/_7_async_notifier_provider/counter/counter_presentation.dart';
 import 'domain/_6_async_provider/enum_based_async_state/enum_async_activity_presentation.dart';
 import 'domain/_6_async_provider/sealed_async_activity/sealed_async_activity_presentation.dart';
+import 'domain/_7_async_notifier_provider/sealed_class_based_async_activity/async_activity_presentation.dart';
 import 'widgets/custom_button.dart';
 
 void main() {
@@ -65,7 +66,12 @@ class MyHomePage extends StatelessWidget {
               title: 'Async sealed-based state',
               child: SealedAsyncActivityPage(),
             ),
-            //
+            SizedBox(height: 50),
+            CustomButton(
+              title: 'AsyncActivityPage',
+              child: AsyncActivityPage(),
+            ),
+            //AsyncActivityPage
             // CustomButton(
             //   title: 'Counter',
             //   child: CounterPageOnNotifier(),
