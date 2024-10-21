@@ -6,7 +6,7 @@ part of 'async_activity_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$asyncActivityHash() => r'2785baf63226b8d9808d66aaf2f95eb86947f288';
+String _$asyncActivityHash() => r'26705b91ea8450c6e66677383ac45b0d34ab1d82';
 
 /// See also [AsyncActivity].
 @ProviderFor(AsyncActivity)
