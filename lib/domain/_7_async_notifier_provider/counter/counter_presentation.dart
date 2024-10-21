@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_project/domain/_7_async_notifier_provider/extensions/async_value_xx.dart';
+import 'package:riverpod_project/domain/extensions/async_value_xx.dart';
 import 'package:riverpod_project/widgets/mini_widgets.dart';
 import '../../../widgets/text_widget.dart';
 // import '_counter_provider.dart'; //when not using code generation

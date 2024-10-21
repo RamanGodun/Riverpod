@@ -6,12 +6,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'domain/_5_notifier_provider/presentation/counter_presentation.dart';
 // import 'domain/_5_notifier_provider/presentation/enum_activity_presentation.dart';
 // import 'domain/_5_notifier_provider/presentation/sealed_activity_presentation.dart';
+// import 'domain/_7_async_notifier_provider/counter/counter_presentation.dart';
+// import 'domain/_6_async_provider/enum_based_async_state/enum_async_activity_presentation.dart';
+// import 'domain/_6_async_provider/sealed_async_activity/sealed_async_activity_presentation.dart';
+// import 'domain/_7_async_notifier_provider/sealed_class_based_async_activity/async_activity_presentation.dart';
+// import 'domain/_8_stream_provider/timer/timer_presentation.dart';
 
-import 'domain/_7_async_notifier_provider/counter/counter_presentation.dart';
-import 'domain/_6_async_provider/enum_based_async_state/enum_async_activity_presentation.dart';
-import 'domain/_6_async_provider/sealed_async_activity/sealed_async_activity_presentation.dart';
-import 'domain/_7_async_notifier_provider/sealed_class_based_async_activity/async_activity_presentation.dart';
-import 'domain/_8_stream_provider/timer/timer_presentation.dart';
+import 'domain/_9_weather_app/weather_first/weather_first_presentation.dart';
+import 'domain/_9_weather_app/weather_second/weather_second_presentation.dart';
 import 'widgets/custom_button.dart';
 
 void main() {
@@ -53,29 +55,40 @@ class MyHomePage extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           shrinkWrap: true,
           children: const [
+            // CustomButton(
+            //   title: 'Counter',
+            //   child: CounterPage(),
+            // ),
+            // SizedBox(height: 50),
+            // CustomButton(
+            //   title: 'Async enum based state',
+            //   child: EnumAsyncActivityPage(),
+            // ),
+            // SizedBox(height: 50),
+            // CustomButton(
+            //   title: 'Async sealed-based state',
+            //   child: SealedAsyncActivityPage(),
+            // ),
+            // SizedBox(height: 50),
+            // CustomButton(
+            //   title: 'AsyncActivityPage',
+            //   child: AsyncActivityPage(),
+            // ),
+            // SizedBox(height: 50),
+            // CustomButton(
+            //   title: 'Stream timer',
+            //   child: StreamTimerPresentation(),
+            // ),
+            // SizedBox(height: 50),
             CustomButton(
-              title: 'Counter',
-              child: CounterPage(),
+              title: 'Weather First Page',
+              child: WeatherFirstPage(),
             ),
+
             SizedBox(height: 50),
             CustomButton(
-              title: 'Async enum based state',
-              child: EnumAsyncActivityPage(),
-            ),
-            SizedBox(height: 50),
-            CustomButton(
-              title: 'Async sealed-based state',
-              child: SealedAsyncActivityPage(),
-            ),
-            SizedBox(height: 50),
-            CustomButton(
-              title: 'AsyncActivityPage',
-              child: AsyncActivityPage(),
-            ),
-            SizedBox(height: 50),
-            CustomButton(
-              title: 'Stream timer',
-              child: StreamTimerPresentation(),
+              title: 'Weather Second Page',
+              child: WeatherSecondPage(),
             ),
             //
             // CustomButton(

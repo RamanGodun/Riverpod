@@ -9,3 +9,10 @@ enum ActivityStatus {
   success, // State when the data is successfully retrieved.
   failure, // State when the data fetching fails.
 }
+
+enum Cities {
+  seoul,
+  london,
+  bangkok,
+  tokyo,
+}
