@@ -229,7 +229,7 @@ class _$ProductImpl implements _Product {
       required this.discountPercentage,
       required this.rating,
       required this.stock,
-      required this.brand,
+      this.brand = 'unknown',
       required this.category,
       required this.thumbnail});
 
@@ -251,6 +251,7 @@ class _$ProductImpl implements _Product {
   @override
   final int stock;
   @override
+  @JsonKey()
   final String brand;
   @override
   final String category;
@@ -313,7 +314,7 @@ abstract class _Product implements Product {
       required final double discountPercentage,
       required final double rating,
       required final int stock,
-      required final String brand,
+      final String brand,
       required final String category,
       required final String thumbnail}) = _$ProductImpl;
 

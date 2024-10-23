@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../widgets/text_widget.dart';
 import 'providers.dart';
 
 class KeepAlivePage extends ConsumerWidget {
@@ -12,15 +13,14 @@ class KeepAlivePage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('KeepAlive'),
+        title: const TextWidget('KeepAlive', TextType.titleSmall),
       ),
       body: Center(
-        child: Text('$counter'),
+        child: TextWidget('$counter', TextType.titleMedium),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          ref.read(keepAliveCounterProvider.notifier).increment();
-        },
+        onPressed: () =>
+            ref.read(keepAliveCounterProvider.notifier).increment(),
         child: const Icon(Icons.add),
       ),
     );

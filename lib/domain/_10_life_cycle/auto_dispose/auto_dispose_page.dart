@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_project/widgets/error_dialog.dart';
 
+import '../../../widgets/text_widget.dart';
 import 'providers.dart';
 
 class AutoDisposePage extends ConsumerWidget {
@@ -14,26 +16,28 @@ class AutoDisposePage extends ConsumerWidget {
         if (next % 3 == 0) {
           showDialog(
             context: context,
-            builder: (context) {
-              return AlertDialog(content: Text('counter: $next'));
-            },
+            builder: (context) => ErrorDialog(errorMessage: 'counter: $next'),
           );
         }
       },
     );
+    // in this case when used ConsumerWidget
+    //provider rebuilds (initialized and cancelled/disposed) every time
     // final counter = ref.watch(autoDisposeCounterProvider);
     // final anotherCounter = ref.watch(anotherCounterProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AutoDispose'),
+        title: const TextWidget('AutoDispose', TextType.titleSmall),
       ),
       body: Center(
+        //  consumer widget is a cause, that provider doesn't rebuild every time => productivity growth
         child: Consumer(
           builder: (context, ref, child) {
             final counter = ref.watch(autoDisposeCounterProvider);
             final anotherCounter = ref.watch(anotherCounterProvider);
-            return Text('$counter : $anotherCounter');
+            return TextWidget(
+                '$counter : $anotherCounter', TextType.titleSmall);
           },
         ),
       ),
@@ -42,17 +46,15 @@ class AutoDisposePage extends ConsumerWidget {
         children: [
           FloatingActionButton(
             heroTag: '1',
-            onPressed: () {
-              ref.read(autoDisposeCounterProvider.notifier).increment();
-            },
+            onPressed: () =>
+                ref.read(autoDisposeCounterProvider.notifier).increment(),
             child: const Icon(Icons.add),
           ),
           const SizedBox(width: 10),
           FloatingActionButton(
             heroTag: '2',
-            onPressed: () {
-              ref.read(anotherCounterProvider.notifier).increment();
-            },
+            onPressed: () =>
+                ref.read(anotherCounterProvider.notifier).increment(),
             child: const Icon(Icons.add),
           ),
         ],

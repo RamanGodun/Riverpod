@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_project/widgets/mini_widgets.dart';
 
-import 'product_page.dart';
+import '../../../data/helpers.dart';
+import '../../../widgets/text_widget.dart';
+import 'product_presentation.dart';
 import 'providers.dart';
 
 class ProductsPage extends ConsumerWidget {
@@ -13,7 +16,7 @@ class ProductsPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Products'),
+        title: const TextWidget('Products', TextType.titleSmall),
       ),
       body: productList.when(
         data: (products) {
@@ -26,33 +29,19 @@ class ProductsPage extends ConsumerWidget {
               final product = products[index];
 
               return GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return ProductPage(productId: product.id);
-                      },
-                    ),
-                  );
-                },
+                onTap: () =>
+                    Helpers.pushTo(context, ProductPage(productId: product.id)),
                 child: ListTile(
-                  leading: CircleAvatar(child: Text('${product.id}')),
-                  title: Text(product.title),
+                  leading: CircleAvatar(
+                      child: TextWidget('${product.id}', TextType.titleSmall)),
+                  title: TextWidget(product.title, TextType.titleMedium),
                 ),
               );
             },
           );
         },
-        error: (e, st) => Center(
-          child: Text(
-            e.toString(),
-            style: Theme.of(context).textTheme.headlineMedium,
-            textAlign: TextAlign.center,
-          ),
-        ),
-        loading: () => const Center(
-          child: CircularProgressIndicator(),
-        ),
+        error: (e, st) => AppMiniWidgets(MWType.error, error: e.toString()),
+        loading: () => const AppMiniWidgets(MWType.loading),
       ),
     );
   }

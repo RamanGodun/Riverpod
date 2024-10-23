@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../widgets/text_widget.dart';
 import 'providers.dart';
 
 class ProviderCascadePage extends ConsumerWidget {
@@ -12,15 +13,13 @@ class ProviderCascadePage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Provider Cascade'),
+        title: const TextWidget('Provider Cascade', TextType.titleSmall),
       ),
       body: Center(
-        child: Text(myAge),
+        child: TextWidget(myAge, TextType.titleMedium),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          ref.read(cascadeCounterProvider.notifier).increment();
-        },
+        onPressed: () => ref.read(cascadeCounterProvider.notifier).increment(),
         child: const Icon(Icons.add),
       ),
     );

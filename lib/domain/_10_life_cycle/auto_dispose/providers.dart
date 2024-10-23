@@ -3,6 +3,32 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'providers.g.dart';
 
 @riverpod
+class AutoDisposeCounter extends _$AutoDisposeCounter {
+  @override
+  int build() {
+    print('[autoDisposeCounterProvider] initialized');
+    ref.onDispose(() {
+      print('[autoDisposeCounterProvider] disposed');
+    });
+    ref.onCancel(() {
+      print('[autoDisposeCounterProvider] cancelled');
+    });
+    ref.onResume(() {
+      print('[autoDisposeCounterProvider] resumed');
+    });
+    ref.onAddListener(() {
+      print('[autoDisposeCounterProvider] listener added');
+    });
+    ref.onRemoveListener(() {
+      print('[autoDisposeCounterProvider] listener removed');
+    });
+    return 0;
+  }
+
+  void increment() => state++;
+}
+
+@riverpod
 class AnotherCounter extends _$AnotherCounter {
   @override
   int build() {
@@ -27,30 +53,4 @@ class AnotherCounter extends _$AnotherCounter {
   }
 
   void increment() => state += 10;
-}
-
-@riverpod
-class AutoDisposeCounter extends _$AutoDisposeCounter {
-  @override
-  int build() {
-    print('[autoDisposeCounterProvider] initialized');
-    ref.onDispose(() {
-      print('[autoDisposeCounterProvider] disposed');
-    });
-    ref.onCancel(() {
-      print('[autoDisposeCounterProvider] cancelled');
-    });
-    ref.onResume(() {
-      print('[autoDisposeCounterProvider] resumed');
-    });
-    ref.onAddListener(() {
-      print('[autoDisposeCounterProvider] listener added');
-    });
-    ref.onRemoveListener(() {
-      print('[autoDisposeCounterProvider] listener removed');
-    });
-    return 0;
-  }
-
-  void increment() => state++;
 }

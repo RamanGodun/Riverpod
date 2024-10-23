@@ -1,94 +1,43 @@
 import 'dart:async';
 
-import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import '../../../data/models/product.dart';
 
 part 'providers.g.dart';
 
 @riverpod
-Dio dio(DioRef ref) {
-  return Dio(
-    BaseOptions(baseUrl: 'https://dummyjson.com'),
-  );
-}
+class SyncKeepAliveCounter extends _$SyncKeepAliveCounter {
+  @override
+  int build() {
+    // next allows to cash data for some time (for example for 10 sec)
+    final keepAliveLink = ref.keepAlive();
+    Timer? timer;
 
-@riverpod
-FutureOr<List<Product>> getProducts(GetProductsRef ref) async {
-  final cancelToken = CancelToken();
-  Timer? timer;
-
-  print('[getProductsProvider] initialized');
-  ref.onDispose(() {
-    print('[getProductsProvider] disposed, token cancelled, timer cancelled');
-    timer?.cancel();
-    cancelToken.cancel();
-  });
-  ref.onCancel(() {
-    print('[getProductsProvider] cancelled');
-  });
-  ref.onResume(() {
-    print('[getProductsProvider] resumed, timer cancelled');
-    timer?.cancel();
-  });
-  ref.onAddListener(() {
-    print('[getProductsProvider] listener added');
-  });
-  ref.onRemoveListener(() {
-    print('[getProductsProvider] listener removed');
-  });
-
-  final response = await ref.watch(dioProvider).get(
-        '/products',
-        cancelToken: cancelToken,
-      );
-
-  final keepAliveLink = ref.keepAlive();
-
-  ref.onCancel(() {
-    print('[getProductsProvider] cancelled, timer started');
-    timer = Timer(const Duration(seconds: 10), () {
-      keepAliveLink.close();
+    print('[syncKeepAliveCounterProvider] initialized');
+    ref.onDispose(() {
+      print('[syncKeepAliveCounterProvider] disposed, timer cancelled');
+      // canceling of timer for it will be available next time
+      timer?.cancel();
     });
-  });
+    ref.onCancel(() {
+      print('[syncKeepAliveCounterProvider] cancelled, timer started');
+      timer = Timer(const Duration(seconds: 10), () {
+        keepAliveLink.close();
+      });
+    });
+    ref.onResume(() {
+      print('[syncKeepAliveCounterProvider] resumed, timer cancelled');
+      // canceling of timer to avoid executing of "keepAliveLink.close()"
+      timer?.cancel();
+    });
+    ref.onAddListener(() {
+      print('[syncKeepAliveCounterProvider] listener added');
+    });
+    ref.onRemoveListener(() {
+      print('[syncKeepAliveCounterProvider] listener removed');
+    });
 
-  final List productList = response.data['products'];
+    return 0;
+  }
 
-  print(productList[0]);
-
-  final products = [
-    for (final product in productList) Product.fromJson(product)
-  ];
-
-  return products;
-}
-
-@riverpod
-FutureOr<Product> getProduct(
-  GetProductRef ref, {
-  required int productId,
-}) async {
-  print('[getProductProvider($productId)] initialized');
-  ref.onDispose(() {
-    print('[getProductProvider($productId)] disposed');
-  });
-  ref.onCancel(() {
-    print('[getProductProvider($productId)] canceled');
-  });
-  ref.onResume(() {
-    print('[getProductProvider($productId)] resumed');
-  });
-  ref.onAddListener(() {
-    print('[getProductProvider($productId)] listener added');
-  });
-  ref.onRemoveListener(() {
-    print('[getProductProvider($productId)] listener removed');
-  });
-
-  final response = await ref.watch(dioProvider).get('/products/$productId');
-
-  final product = Product.fromJson(response.data);
-
-  return product;
+  void increment() => state++;
 }
