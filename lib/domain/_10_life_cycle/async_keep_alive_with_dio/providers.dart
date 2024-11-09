@@ -1,3 +1,4 @@
+// ignore_for_file: functional_ref
 import 'dart:async';
 
 import 'package:dio/dio.dart';

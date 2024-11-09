@@ -1,3 +1,4 @@
+// ignore_for_file: functional_ref
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_3_plus_auto_dispose_family_mod.g.dart';

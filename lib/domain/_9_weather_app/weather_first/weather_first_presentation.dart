@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_project/domain/extensions/async_value_xx.dart';
 import 'package:riverpod_project/widgets/text_widget.dart';
 
 import '../../../data/enums.dart';
 import '../../../widgets/error_dialog.dart';
 import '../../../widgets/mini_widgets.dart';
-import '../../extensions/async_value_xx.dart';
 import 'weather_first_provider.dart';
 
 int _selectedCityIndex = 1;
@@ -29,7 +29,7 @@ class WeatherFirstPage extends ConsumerWidget {
 
     final weather = ref.watch(weatherFirstProvider);
 
-    print(weather.toStr);
+    print(weather.toString);
     print(weather.props);
 
     try {

@@ -1,3 +1,4 @@
+// ignore_for_file: functional_ref
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../data/enums.dart';
@@ -42,4 +43,5 @@ FutureOr<String> weatherSecond(WeatherSecondRef ref) async {
     case Cities.tokyo:
       return '${city.name} - 28';
   }
+  // return null;
 }

@@ -15,7 +15,7 @@ class CounterPage extends ConsumerWidget {
     final counter = ref.watch(counterProvider(10));
 
     // Printing the current state of AsyncValue using extension methods
-    print('Counter state: ${counter.toStr}');
+    print('Counter state: ${counter.toString}');
     print('Counter props: ${counter.props}');
 
     return Scaffold(

@@ -14,13 +14,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'domain/_9_weather_app/weather_first/weather_first_presentation.dart';
 // import 'domain/_9_weather_app/weather_second/weather_second_presentation.dart';
 // import 'domain/_10_life_cycle/async_keep_alive/products_page.dart';
+// import 'domain/_10_life_cycle/auto_dispose/auto_dispose_page.dart';
+// import 'domain/_10_life_cycle/keep_alive/keep_alive_page.dart';
+// import 'domain/_10_life_cycle/provider_cascade/provider_cascade_page.dart';
+// import 'domain/_10_life_cycle/async_keep_alive/sync_keep_alive_page.dart';
 
 import 'domain/_10_life_cycle/async_keep_alive_with_dio/products_page.dart';
-import 'domain/_10_life_cycle/auto_dispose/auto_dispose_page.dart';
-
-import 'domain/_10_life_cycle/keep_alive/keep_alive_page.dart';
-import 'domain/_10_life_cycle/provider_cascade/provider_cascade_page.dart';
-import 'domain/_10_life_cycle/async_keep_alive/sync_keep_alive_page.dart';
+import 'optimization/rebuilds_minimization/pages/items_page.dart';
 import 'widgets/custom_button.dart';
 
 void main() {
@@ -55,7 +55,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AsyncNotifierProvider'),
+        title: const Text('Test app'),
       ),
       body: Center(
         child: ListView(
@@ -105,25 +105,31 @@ class MyHomePage extends StatelessWidget {
 
             SizedBox(height: 50),
             CustomButton(
-              title: 'Auto Dispose',
-              child: AutoDisposePage(),
+              title: 'OPTIMIZATION',
+              child: ItemsPage(),
             ),
 
             SizedBox(height: 50),
-            CustomButton(
-              title: 'Keep Alive',
-              child: KeepAlivePage(),
-            ),
-            SizedBox(height: 50),
-            CustomButton(
-              title: 'Provider Cascade',
-              child: ProviderCascadePage(),
-            ),
-            SizedBox(height: 50),
-            CustomButton(
-              title: 'Async Keep Alive',
-              child: SyncKeepAlivePage(),
-            ),
+            // CustomButton(
+            //   title: 'Auto Dispose',
+            //   child: AutoDisposePage(),
+            // ),
+
+            // SizedBox(height: 50),
+            // CustomButton(
+            //   title: 'Keep Alive',
+            //   child: KeepAlivePage(),
+            // ),
+            // SizedBox(height: 50),
+            // CustomButton(
+            //   title: 'Provider Cascade',
+            //   child: ProviderCascadePage(),
+            // ),
+            // SizedBox(height: 50),
+            // CustomButton(
+            //   title: 'Async Keep Alive',
+            //   child: SyncKeepAlivePage(),
+            // ),
             // ProductsPage
             // CustomButton(
             //   title: 'Counter',

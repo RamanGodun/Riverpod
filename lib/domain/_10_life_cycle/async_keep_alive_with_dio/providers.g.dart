@@ -6,7 +6,7 @@ part of 'providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$getProductsHash() => r'20e3b2daa81a42fef83a9dd92cc9b2ea35a604b6';
+String _$getProductsHash() => r'63111e7cdd08206d414967ff09df42cfd6e00abf';
 
 /// See also [getProducts].
 @ProviderFor(getProducts)
@@ -20,7 +20,7 @@ final getProductsProvider = AutoDisposeFutureProvider<List<Product>>.internal(
 );
 
 typedef GetProductsRef = AutoDisposeFutureProviderRef<List<Product>>;
-String _$getProductHash() => r'd4eb524b206f697465ac64cb4cfada0e87fe6c4b';
+String _$getProductHash() => r'10f7dba3272454d906122bc5646bc56c3d60d19a';
 
 /// Copied from Dart SDK
 class _SystemHash {

@@ -1,3 +1,4 @@
+// ignore_for_file: functional_ref
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'providers.g.dart';
