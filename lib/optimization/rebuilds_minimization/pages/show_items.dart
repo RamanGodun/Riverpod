@@ -30,7 +30,7 @@ class EachItem extends ConsumerWidget {
     final item = ref.watch(currentItemProvider);
     print('building ${item.text}');
 
-    return ListTile(
+    return ListTile(  
       title: Text(
         item.text,
         style: const TextStyle(fontSize: 18.0),
