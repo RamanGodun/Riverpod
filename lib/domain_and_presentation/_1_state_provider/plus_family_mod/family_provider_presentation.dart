@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_project/domain/_1_state_provider/plus_family_mod/_family_provider.dart';
+import 'package:riverpod_project/domain_and_presentation/_1_state_provider/plus_family_mod/_family_provider.dart';
 import 'package:riverpod_project/widgets/mini_widgets.dart';
 
 import '../../../widgets/text_widget.dart';

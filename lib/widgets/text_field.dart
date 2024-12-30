@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import '../domain/_4_state_or_change_notifier_provider/change_notifier_provider.dart';
+import '../domain_and_presentation/_4_state_or_change_notifier_provider/change_notifier_provider.dart';
 
 class AppTextField extends HookConsumerWidget {
   const AppTextField({super.key});

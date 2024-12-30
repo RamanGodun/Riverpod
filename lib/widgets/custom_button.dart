@@ -23,3 +23,29 @@ class CustomButton extends StatelessWidget {
     );
   }
 }
+
+class CustomButtonForDialog extends StatelessWidget {
+  const CustomButtonForDialog({
+    super.key,
+    required this.title,
+    required this.child,
+  });
+  final String title;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5.0),
+      child: OutlinedButton(
+        onPressed: () => showDialog(
+          context: context,
+          builder: (c) {
+            return child;
+          },
+        ),
+        child: TextWidget(title, TextType.button),
+      ),
+    );
+  }
+}

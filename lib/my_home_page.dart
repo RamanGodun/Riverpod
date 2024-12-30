@@ -20,27 +20,29 @@
 // import 'optimization/_widget_rebuild_optimization/pages/items_page.dart';
 // import 'widgets/custom_button.dart';
 // import 'optimization/sync_provider_4_async_API/other_page.dart';
-// import 'package:riverpod_project/optimization/sync_provider_4_async_API/counter_provider.dart';.
+// import 'package:riverpod_project/optimization/sync_provider_4_async_API/counter_provider.dart';
+// import '../optimization/sync_provider_4_async_API/counter_provider.dart';
+// import 'optimization/provider_scope_and_overlay/downloaded/pages/counter_provider.dart';
+// import '../optimization/_widget_rebuild_optimization/pages/items_page.dart';
+// import '../optimization/sync_provider_4_async_API/other_page.dart';
+// import '../optimization/sync_provider_4_async_API/counter_provider.dart'   as sync_counter;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../optimization/sync_provider_4_async_API/counter_provider.dart';
-import '../optimization/_widget_rebuild_optimization/pages/items_page.dart';
-import '../optimization/sync_provider_4_async_API/other_page.dart';
+import 'package:riverpod_project/optimization/provider_scope_and_overlay/pages/counter_provider.dart';
 import '../widgets/custom_button.dart';
+import 'package:riverpod_project/optimization/provider_scope_and_overlay/pages/home_paged_4_overlay_optimization.dart';
+import 'optimization/provider_scope_and_overlay/pages/counter_provider.dart'
+    as overlay_counter;
 
-//ConsumerWidget used only for optimization, when initialization of Synch Provider for Async APIs (in ALL other cases just StatelessWidget)
-class MyHomePage extends ConsumerWidget {
+class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final counter = ref.watch(
-        counterProvider); //used only  for optimization, when initialization of Synch Provider for Async APIs
-
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Test app'),
+        title: const Text('Riverpod app'),
       ),
       body: Center(
         child: ListView(
@@ -87,24 +89,30 @@ class MyHomePage extends ConsumerWidget {
             //   title: 'Products',
             //   child: ProductsPage(),
             // ),
-            Center(
-              child: Text(
-                '$counter',
-                style: const TextStyle(fontSize: 52),
-              ),
-            ),
-            const CustomButton(
-              title: 'go to SyncProvider4AsyncAPI page',
-              child: SyncProvider4AsyncAPI(),
-            ),
+            // Center(
+            //   child: Consumer(
+            //     builder: (context, ref, child) {
+            //       final counter = ref.watch(sync_counter.counterProvider);
+            //       // final preferences = ref.watch(sharedPreferencesProvider);
+            //       // final val = preferences.getInt('counter');
+            //       return Text(
+            //         '$counter',
+            //         style: const TextStyle(fontSize: 52),
+            //       );
+            //     },
+            //   ),
+            // ),
+            // const CustomButton(
+            //   title: 'go to SyncProvider4AsyncAPI page',
+            //   child: SyncProvider4AsyncAPI(),
+            // ),
+            // const SizedBox(height: 50),
 
-            const SizedBox(height: 50),
-            const CustomButton(
-              title: 'OPTIMIZATION',
-              child: ItemsPage(),
-            ),
-
-            const SizedBox(height: 50),
+            // const CustomButton(
+            //   title: 'OPTIMIZATION',
+            //   child: ItemsPage(),
+            // ),
+            // const SizedBox(height: 50),
             // CustomButton(
             //   title: 'Auto Dispose',
             //   child: AutoDisposePage(),
@@ -146,16 +154,34 @@ class MyHomePage extends ConsumerWidget {
             //   title: 'Todo',
             //   child: TodosPage(),
             // )
+
+            const SizedBox(height: 50),
+            CustomButton(
+              title: 'go to Overlay optimization with 100',
+              child: ProviderScope(
+                overrides: [
+                  overlay_counter.counterProvider.overrideWith(
+                    () => Counter100(),
+                  )
+                ],
+                child: const HomePage4OverlayOptimization(),
+              ),
+            ),
+            const SizedBox(height: 50),
           ],
         ),
       ),
 // next used only  for optimization, when  initialization of Synch Provider for Async APIs
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          ref.read(counterProvider.notifier).increment();
-        },
-        child: const Icon(Icons.add),
-      ),
+      // floatingActionButton: Consumer(
+      //   builder: (context, ref, child) {
+      //     return FloatingActionButton(
+      //       onPressed: () {
+      //         ref.read(sync_counter.counterProvider.notifier).increment();
+      //       },
+      //       child: const Icon(Icons.add),
+      //     );
+      //   },
+      // ),
     );
   }
 }

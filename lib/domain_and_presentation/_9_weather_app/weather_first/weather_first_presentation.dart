@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_project/domain/extensions/async_value_xx.dart';
+import 'package:riverpod_project/domain_and_presentation/extensions/async_value_xx.dart';
 import 'package:riverpod_project/widgets/text_widget.dart';
 
 import '../../../data/enums.dart';
