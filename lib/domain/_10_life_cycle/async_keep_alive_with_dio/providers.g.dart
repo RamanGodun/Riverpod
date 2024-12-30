@@ -19,6 +19,8 @@ final getProductsProvider = AutoDisposeFutureProvider<List<Product>>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef GetProductsRef = AutoDisposeFutureProviderRef<List<Product>>;
 String _$getProductHash() => r'10f7dba3272454d906122bc5646bc56c3d60d19a';
 
@@ -156,6 +158,8 @@ class GetProductProvider extends AutoDisposeFutureProvider<Product> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetProductRef on AutoDisposeFutureProviderRef<Product> {
   /// The parameter `productId` of this provider.
   int get productId;
@@ -169,4 +173,4 @@ class _GetProductProviderElement
   int get productId => (origin as GetProductProvider).productId;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

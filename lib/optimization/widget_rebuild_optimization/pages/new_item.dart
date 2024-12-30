@@ -14,12 +14,6 @@ class _NewItemState extends ConsumerState<NewItem> {
   final _controller = TextEditingController();
 
   @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return TextField(
       controller: _controller,
@@ -31,5 +25,11 @@ class _NewItemState extends ConsumerState<NewItem> {
         }
       },
     );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }

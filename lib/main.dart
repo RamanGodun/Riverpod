@@ -20,7 +20,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'domain/_10_life_cycle/async_keep_alive/sync_keep_alive_page.dart';
 
 import 'domain/_10_life_cycle/async_keep_alive_with_dio/products_page.dart';
-import 'optimization/rebuilds_minimization/pages/items_page.dart';
+import 'optimization/sync_provider_4_async_API/other_page.dart';
+import 'optimization/widget_rebuild_optimization/pages/items_page.dart';
 import 'widgets/custom_button.dart';
 
 void main() {
@@ -101,6 +102,10 @@ class MyHomePage extends StatelessWidget {
             CustomButton(
               title: 'Products',
               child: ProductsPage(),
+            ),
+            CustomButton(
+              title: 'SyncProvider4AsyncAPI',
+              child: SyncProvider4AsyncAPI(),
             ),
 
             SizedBox(height: 50),

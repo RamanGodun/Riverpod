@@ -20,6 +20,8 @@ final weatherSecondProvider = AutoDisposeFutureProvider<String>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef WeatherSecondRef = AutoDisposeFutureProviderRef<String>;
 String _$cityHash() => r'52eb79862338a7e39c29ce67deb860df0092250c';
 
@@ -36,4 +38,4 @@ final cityProvider = AutoDisposeNotifierProvider<City, Cities>.internal(
 
 typedef _$City = AutoDisposeNotifier<Cities>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

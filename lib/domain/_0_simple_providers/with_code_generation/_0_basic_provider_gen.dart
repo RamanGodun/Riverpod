@@ -24,7 +24,6 @@ String words(WordsRef ref) {
   return 'Words provider';
 }
 
-
 /*
  This provider  does not dispose automatically.
  The `onDispose` callback is never triggered because

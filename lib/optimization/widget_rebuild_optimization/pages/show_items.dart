@@ -14,6 +14,13 @@ class ShowItems extends ConsumerWidget {
       children: [
         for (final item in items)
           ProviderScope(
+/*
+`ShowItems` widget:
+- Uses `ref.watch(itemListProvider)` to get the list of items.
+- For each item in the list, wraps the corresponding widget (`EachItem`) in a `ProviderScope`.
+- `ProviderScope` overrides `currentItemProvider` with the specific item, creating an isolated state for it.
+- This mechanism ensures that changes to one item do not cause the entire list to re-render, only the affected item will rebuild.
+ */
             overrides: [currentItemProvider.overrideWithValue(item)],
             child: const EachItem(),
           )
@@ -27,10 +34,18 @@ class EachItem extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+/*
+`EachItem` widget:
+- Uses `ref.watch(currentItemProvider)` to fetch the specific item associated with this widget.
+- `currentItemProvider` ensures that `EachItem` works only with its assigned item, providing state isolation.
+- As a result, even if other items in the list change, this widget won't rebuild unless its state changes.
+- This drastically reduces the number of re-renders in large lists.
+ */
+
     final item = ref.watch(currentItemProvider);
     print('building ${item.text}');
 
-    return ListTile(  
+    return ListTile(
       title: Text(
         item.text,
         style: const TextStyle(fontSize: 18.0),

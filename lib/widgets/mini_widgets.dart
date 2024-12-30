@@ -20,6 +20,7 @@ class AppMiniWidgets extends StatelessWidget {
     this.stackTrace,
   });
   @override
+  @override
   Widget build(BuildContext context) {
     switch (type) {
       case MWType.loading:
@@ -27,16 +28,13 @@ class AppMiniWidgets extends StatelessWidget {
           child: CircularProgressIndicator.adaptive(),
         );
       case MWType.error:
-        //! it's necessary to handle StackTrace st value (if it available)
+        //! It's necessary to handle StackTrace st value (if it available)
         return Center(
           child: TextWidget(
             error?.toString() ?? 'An unknown error occurred',
             TextType.error,
           ),
         );
-      default:
-        return const SizedBox
-            .shrink(); // Return an empty widget for unsupported types
     }
   }
 }

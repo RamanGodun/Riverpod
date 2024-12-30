@@ -19,6 +19,8 @@ final userListProvider = AutoDisposeFutureProvider<List<User>>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef UserListRef = AutoDisposeFutureProviderRef<List<User>>;
 String _$userDetailHash() => r'621232196d75167c197cb05dac03903bede6b8c8';
 
@@ -156,6 +158,8 @@ class UserDetailProvider extends AutoDisposeFutureProvider<User> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserDetailRef on AutoDisposeFutureProviderRef<User> {
   /// The parameter `id` of this provider.
   int get id;
@@ -169,4 +173,4 @@ class _UserDetailProviderElement extends AutoDisposeFutureProviderElement<User>
   int get id => (origin as UserDetailProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
