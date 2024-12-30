@@ -1,4 +1,4 @@
-// ignore_for_file: functional_ref
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../../data/models/user.dart';
 import 'dio_provider.dart';
@@ -6,7 +6,7 @@ import 'dio_provider.dart';
 part 'users_providers_gen.g.dart';
 
 @riverpod
-FutureOr<List<User>> userList(UserListRef ref) async {
+FutureOr<List<User>> userList(Ref ref) async {
   // Set up a dispose callback to track when the provider is disposed
   ref.onDispose(() {
     print('[userListProvider] disposed');
@@ -30,7 +30,7 @@ FutureOr<List<User>> userList(UserListRef ref) async {
 }
 
 @riverpod
-FutureOr<User> userDetail(UserDetailRef ref, int id) async {
+FutureOr<User> userDetail(Ref ref, int id) async {
   // Set up a dispose callback to track when the provider is disposed
   ref.onDispose(() {
     print('[userDetailProvider($id)] disposed');

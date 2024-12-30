@@ -1,10 +1,10 @@
-// ignore_for_file: functional_ref
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_1_plus_auto_dispose_mod_gen.g.dart';
 
 @riverpod
-String autoDisposed(AutoDisposedRef ref) {
+String autoDisposed(Ref ref) {
   print('[autoDisposedProvider] was created');
 
   ref.onDispose(() {

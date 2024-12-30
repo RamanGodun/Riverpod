@@ -31,7 +31,6 @@ class ItemList extends _$ItemList {
   }
 }
 
-
 /*
 `currentItemProvider`:
 - A generated provider that creates a **local state** for each element in the list.

@@ -1,4 +1,5 @@
-// ignore_for_file: functional_ref
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'ticker_provider_gen.g.dart';
@@ -14,7 +15,7 @@ In next case, we use `keepAlive: true` to ensure that the ticker stream remains 
 even if the widget using it is disposed, allowing the stream to continue emitting values.
  */
 @Riverpod(keepAlive: true)
-Stream<int> ticker(TickerRef ref) {
+Stream<int> ticker(Ref ref) {
   ref.onDispose(() {
     print('[tickerProvider] disposed');
   });

@@ -1,4 +1,5 @@
-// ignore_for_file: functional_ref
+// ! imported "flutter_riverpod" after changing "HelloRef" on "Ref" (look option to use just "riverpod" library)
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 //rivp and choose autocompletion
@@ -7,7 +8,8 @@ part '_0_basic_provider_gen.g.dart';
 
 // riverpodKeepAlive and choose autocompletion
 @Riverpod(keepAlive: true)
-String hello(HelloRef ref) {
+String hello(Ref ref) {
+  // Заміна HelloRef на Ref
   ref.onDispose(() {
     print('[helloProvider] was disposed');
   });
@@ -16,7 +18,8 @@ String hello(HelloRef ref) {
 }
 
 @Riverpod(keepAlive: true)
-String words(WordsRef ref) {
+String words(Ref ref) {
+  // Заміна WordsRef на Ref
   ref.onDispose(() {
     print('[wordsProviders] was disposed');
   });
@@ -25,7 +28,7 @@ String words(WordsRef ref) {
 }
 
 /*
- This provider  does not dispose automatically.
+ This provider does not dispose automatically.
  The `onDispose` callback is never triggered because
  the provider stays in memory throughout the entire app run.
 

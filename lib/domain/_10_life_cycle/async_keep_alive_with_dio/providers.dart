@@ -1,7 +1,7 @@
-// ignore_for_file: functional_ref
 import 'dart:async';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../../data/models/product.dart';
 import 'dio_provider.dart';
@@ -9,7 +9,7 @@ import 'dio_provider.dart';
 part 'providers.g.dart';
 
 @riverpod
-FutureOr<List<Product>> getProducts(GetProductsRef ref) async {
+FutureOr<List<Product>> getProducts(Ref ref) async {
   final cancelToken = CancelToken();
   Timer? timer;
 
@@ -63,7 +63,7 @@ FutureOr<List<Product>> getProducts(GetProductsRef ref) async {
 
 @riverpod
 FutureOr<Product> getProduct(
-  GetProductRef ref, {
+  Ref ref, {
   required int productId,
 }) async {
   final cancelToken = CancelToken();

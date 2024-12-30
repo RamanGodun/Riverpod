@@ -7,7 +7,7 @@ part of '_auto_dispose_provider.dart';
 // **************************************************************************
 
 String _$autoDisposedClickedTimesHash() =>
-    r'0d45e4016cb379b880c397550052c78f79d6932b';
+    r'ff913590d944a749569e63c79b33c7c280bd5ac7';
 
 /// See also [autoDisposedClickedTimes].
 @ProviderFor(autoDisposedClickedTimes)

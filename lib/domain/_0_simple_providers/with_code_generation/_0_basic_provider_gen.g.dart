@@ -6,7 +6,7 @@ part of '_0_basic_provider_gen.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$helloHash() => r'2b9bf62ba3fdf4c4a6211144d5f70bb42dadb763';
+String _$helloHash() => r'c3a24f8a0585736d699f311fbbf8fa1658660aa2';
 
 /// See also [hello].
 @ProviderFor(hello)
@@ -22,7 +22,7 @@ final helloProvider = Provider<String>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef HelloRef = ProviderRef<String>;
-String _$wordsHash() => r'47012fe736f7f71cd610d06194f56f08b6ab4472';
+String _$wordsHash() => r'20e6b23195efa7691b691a9ae167a304b4760af5';
 
 /// See also [words].
 @ProviderFor(words)

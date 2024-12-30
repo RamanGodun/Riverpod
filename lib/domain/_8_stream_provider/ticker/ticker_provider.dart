@@ -1,6 +1,4 @@
-// ignore_for_file: functional_ref
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'ticker_provider.g.dart';
@@ -14,7 +12,7 @@ part 'ticker_provider.g.dart';
 // });
 
 @riverpod
-Stream<int> ticker(TickerRef ref) {
+Stream<int> ticker(Ref ref) {
   ref.onDispose(() {
     print('[tickerProvider] disposed');
   });

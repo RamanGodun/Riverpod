@@ -6,7 +6,7 @@ part of '_1_plus_auto_dispose_mod_gen.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$autoDisposedHash() => r'a0f7dc6a909818163272333904bc610b3de02d1b';
+String _$autoDisposedHash() => r'5701e0d537ace56f41aebd7f7abd3353b7ec191e';
 
 /// See also [autoDisposed].
 @ProviderFor(autoDisposed)

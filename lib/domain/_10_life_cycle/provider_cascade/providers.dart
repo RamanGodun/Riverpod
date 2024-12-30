@@ -1,4 +1,4 @@
-// ignore_for_file: functional_ref
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'providers.g.dart';
@@ -31,7 +31,7 @@ class CascadeCounter extends _$CascadeCounter {
 }
 
 @riverpod
-String age(AgeRef ref) {
+String age(Ref ref) {
   print('[ageProvider] initialized');
   ref.onDispose(() {
     print('[ageProvider] disposed');

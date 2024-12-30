@@ -6,7 +6,7 @@ part of '_2_plus_family_mod_gen.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$familyHash() => r'c3bf31864cced6214007625425981cc8a822dffa';
+String _$familyHash() => r'ed6142bcc16a4eb1028682158b2462f88fa02be1';
 
 /// Copied from Dart SDK
 class _SystemHash {

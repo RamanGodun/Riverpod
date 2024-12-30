@@ -1,4 +1,3 @@
-// ignore_for_file: functional_ref
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -14,7 +13,7 @@ final counterProvider = StateProvider<int>((ref) {
 });
 
 @Riverpod(keepAlive: true)
-String clickedTimes(ClickedTimesRef ref) {
+String clickedTimes(Ref ref) {
   // Manually watching counterProvider to get the current clicking count
   // ignore: avoid_manual_providers_as_generated_provider_dependency
   final clickingCount = ref.watch(counterProvider);

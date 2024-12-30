@@ -1,11 +1,10 @@
-// ignore_for_file: functional_ref
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_3_plus_auto_dispose_family_mod.g.dart';
 
 @riverpod
-String autoDisposeFamily(AutoDisposeFamilyRef ref,
-    {required String customName}) {
+String autoDisposeFamily(Ref ref, {required String customName}) {
   print('[autoDisposeFamilyProvider($customName)] was created');
   ref.onDispose(() {
     print('[autoDisposeFamilyProvider($customName)] was disposed');

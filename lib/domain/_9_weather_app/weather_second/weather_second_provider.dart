@@ -1,4 +1,4 @@
-// ignore_for_file: functional_ref
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../data/enums.dart';
@@ -22,7 +22,7 @@ class City extends _$City {
 }
 
 @riverpod
-FutureOr<String> weatherSecond(WeatherSecondRef ref) async {
+FutureOr<String> weatherSecond(Ref ref) async {
   print('[weatherSecondProvider] initialized');
   ref.onDispose(() {
     print('[weatherSecondProvider] disposed');

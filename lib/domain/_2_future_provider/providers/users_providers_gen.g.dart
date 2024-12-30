@@ -6,7 +6,7 @@ part of 'users_providers_gen.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$userListHash() => r'c09b5bd70deb81a61e46c87b1f998079f20c09a8';
+String _$userListHash() => r'e3f91a8624f8d362e265a00d103edf460f814ddc';
 
 /// See also [userList].
 @ProviderFor(userList)
@@ -22,7 +22,7 @@ final userListProvider = AutoDisposeFutureProvider<List<User>>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef UserListRef = AutoDisposeFutureProviderRef<List<User>>;
-String _$userDetailHash() => r'621232196d75167c197cb05dac03903bede6b8c8';
+String _$userDetailHash() => r'6716910e38764a9c82cf880b8fce0782c543b6af';
 
 /// Copied from Dart SDK
 class _SystemHash {

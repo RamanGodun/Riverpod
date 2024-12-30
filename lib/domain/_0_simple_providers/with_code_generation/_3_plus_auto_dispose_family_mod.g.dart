@@ -6,7 +6,7 @@ part of '_3_plus_auto_dispose_family_mod.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$autoDisposeFamilyHash() => r'402f5fef27ca28af027446767ec85b120b9267ac';
+String _$autoDisposeFamilyHash() => r'30d741f4dc93c130d1f9ed444b1fec9f1c3f569b';
 
 /// Copied from Dart SDK
 class _SystemHash {

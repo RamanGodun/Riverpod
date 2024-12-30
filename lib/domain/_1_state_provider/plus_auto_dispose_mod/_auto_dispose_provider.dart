@@ -1,4 +1,3 @@
-// ignore_for_file: functional_ref
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -16,7 +15,7 @@ final autoDisposedCounterProvider = StateProvider.autoDispose<int>((ref) {
 
 @Riverpod(
     keepAlive: false) // Not keeping the provider alive after it's out of scope
-String autoDisposedClickedTimes(AutoDisposedClickedTimesRef ref) {
+String autoDisposedClickedTimes(Ref ref) {
   // Manually watching autoDisposedCounterProvider to get the current clicking count
   // ignore: avoid_manual_providers_as_generated_provider_dependency
   final clickingCount = ref.watch(autoDisposedCounterProvider);

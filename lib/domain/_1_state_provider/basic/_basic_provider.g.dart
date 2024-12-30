@@ -6,7 +6,7 @@ part of '_basic_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$clickedTimesHash() => r'bc607a726b09f395a66df418980fca135f698c5c';
+String _$clickedTimesHash() => r'12d9d42e5a13716ee648566b4d7b75010d18f74c';
 
 /// See also [clickedTimes].
 @ProviderFor(clickedTimes)

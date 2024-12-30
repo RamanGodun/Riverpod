@@ -6,7 +6,7 @@ part of 'providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$ageHash() => r'37757d1836cf5376fc75ca6efaf3d7ca843b4e1b';
+String _$ageHash() => r'81fc74edf087d92238eec5dfcf0e044aa12953f5';
 
 /// See also [age].
 @ProviderFor(age)

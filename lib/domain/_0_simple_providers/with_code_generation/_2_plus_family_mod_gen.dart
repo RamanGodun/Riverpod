@@ -1,10 +1,10 @@
-// ignore_for_file: functional_ref
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_2_plus_family_mod_gen.g.dart';
 
 @Riverpod(keepAlive: true)
-String family(FamilyRef ref, {required String customName}) {
+String family(Ref ref, {required String customName}) {
   ref.onDispose(() {
     print('[familyProvider($customName)] was disposed');
   });
