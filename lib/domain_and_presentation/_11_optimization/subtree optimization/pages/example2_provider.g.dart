@@ -7,7 +7,7 @@ part of 'example2_provider.dart';
 // **************************************************************************
 
 String _$ex2AdjustedCounterHash() =>
-    r'e0a7aaf2af34b90e97d704db82a6265548e07dc0';
+    r'7baa8cc193c743112a6a1c951342f342b0fa925f';
 
 /// See also [ex2AdjustedCounter].
 @ProviderFor(ex2AdjustedCounter)

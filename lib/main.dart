@@ -1,24 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'my_home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-part 'main.g.dart';
-
-@riverpod
-SharedPreferences sharedPreferences(Ref ref) {
-  throw UnimplementedError();
-}
+import 'domain_and_presentation/_11_optimization/_sync_provider_4_async_API/shared_pref_provider.dart';
+import 'my_home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // final prefs = await SharedPreferences.getInstance();
+  final prefs = await SharedPreferences.getInstance();
 
   runApp(
-    const ProviderScope(
-      // overrides: [sharedPreferencesProvider.overrideWithValue(prefs)],
-      child: MyApp(),
+    ProviderScope(
+      overrides: [sharedPreferencesProvider.overrideWithValue(prefs)],
+      child: const MyApp(),
     ),
   );
 }

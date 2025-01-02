@@ -1,9 +1,9 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../../main.dart';
+import 'shared_pref_provider.dart';
 
 part 'counter_provider.g.dart';
 
-@riverpod
+@Riverpod(dependencies: [sharedPreferences])
 // use template with riverpodClass and then change it
 class Counter extends _$Counter {
   @override

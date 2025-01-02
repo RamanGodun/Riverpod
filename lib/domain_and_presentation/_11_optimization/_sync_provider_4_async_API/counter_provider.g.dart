@@ -6,7 +6,7 @@ part of 'counter_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$counterHash() => r'b1d02fdaf03cb90ac7e767f73d8309b1bb473c68';
+String _$counterHash() => r'70c53fa21863baf3aee5e3c1602056bffd5f830a';
 
 /// See also [Counter].
 @ProviderFor(Counter)
@@ -15,8 +15,11 @@ final counterProvider = AutoDisposeNotifierProvider<Counter, int>.internal(
   name: r'counterProvider',
   debugGetCreateSourceHash:
       const bool.fromEnvironment('dart.vm.product') ? null : _$counterHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
+  dependencies: <ProviderOrFamily>[sharedPreferencesProvider],
+  allTransitiveDependencies: <ProviderOrFamily>{
+    sharedPreferencesProvider,
+    ...?sharedPreferencesProvider.allTransitiveDependencies
+  },
 );
 
 typedef _$Counter = AutoDisposeNotifier<int>;
