@@ -26,7 +26,26 @@ local providers ensure "state isolation", that allows to work with each element 
 
 
 ===============================
-## Other Important Concepts:
+## ! Influence of using "parent" parameter:
+When calling showDialog or navigation methods in the HomePage4OverlayOptimization widget:
+	1.	Without the parent parameter:
+	•	Even if the parent widget MyHomePage overrides the provider using:
+          ProviderScope(
+            overrides: [
+                 overlay_counter.counterProvider.overrideWith(
+                 () => Counter100(),
+                    )
+                    ],
+                    child: const HomePage4OverlayOptimization(),
+                )
+
+	•	The global context (from the ProviderScope in main.dart) is used.
+	•	For example, the counterProvider value will be "0" (default value in the global context).
+
+	2.	With the parent parameter in ProviderScope:
+	•	The nearest local context (from the parent ProviderScope) is inherited.
+	•	In this case:
+	•	The counterProvider value will be "100", as overridden in MyHomePage.
 
 
 ===============================

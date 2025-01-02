@@ -29,11 +29,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_project/optimization/provider_scope_and_overlay/pages/counter_provider.dart';
+import 'package:riverpod_project/optimization/_provider_scope_and_overlay/pages/counter_provider.dart';
 import '../widgets/custom_button.dart';
-import 'package:riverpod_project/optimization/provider_scope_and_overlay/pages/home_paged_4_overlay_optimization.dart';
-import 'optimization/provider_scope_and_overlay/pages/counter_provider.dart'
+import 'package:riverpod_project/optimization/_provider_scope_and_overlay/pages/home_paged_4_overlay_optimization.dart';
+import 'optimization/_provider_scope_and_overlay/pages/counter_provider.dart'
     as overlay_counter;
+import 'optimization/subtree optimization/pages/example1_page.dart';
+import 'optimization/subtree optimization/pages/example2_page.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -166,6 +168,16 @@ class MyHomePage extends StatelessWidget {
                 ],
                 child: const HomePage4OverlayOptimization(),
               ),
+            ),
+            const SizedBox(height: 50),
+            const CustomButton(
+              title: 'go to Example1',
+              child: Example1Page(),
+            ),
+            const SizedBox(height: 50),
+            const CustomButton(
+              title: 'go to Example2',
+              child: Example2Page(),
             ),
             const SizedBox(height: 50),
           ],
