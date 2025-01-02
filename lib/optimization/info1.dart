@@ -50,4 +50,10 @@ When calling showDialog or navigation methods in the HomePage4OverlayOptimizatio
 
 ===============================
 
+===============================
+## SUBTREE SCOPING
+
+at first, look opportunity to avoid using it, by using separate provider or family provider(because subtree scoping is difficult)
+
+===============================
  */

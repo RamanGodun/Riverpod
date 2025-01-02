@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import '../../../widgets/text_widget.dart';
 import 'example1_provider.dart';
 
 class Example1Page extends ConsumerWidget {
@@ -10,7 +10,7 @@ class Example1Page extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Usage Example 1'),
+        title: const TextWidget('Usage Example 1', TextType.titleSmall),
       ),
       body: Center(
         child: Column(
@@ -19,6 +19,7 @@ class Example1Page extends ConsumerWidget {
             const AddOne(),
             const Divider(height: 50),
             ProviderScope(
+// without overrides AddOne() and AddTen() will change one-the=same provider
               overrides: [ex1CounterProvider],
               child: const AddTen(),
             ),
@@ -43,13 +44,13 @@ class AddOne extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
-        Text('${ref.watch(ex1CounterProvider)}'),
+        TextWidget('${ref.watch(ex1CounterProvider)}', TextType.smallHeadline),
         const SizedBox(height: 10),
         OutlinedButton(
           onPressed: () {
             ref.read(ex1CounterProvider.notifier).increment(1);
           },
-          child: const Text('Add 1'),
+          child: const TextWidget('Add 1', TextType.titleSmall),
         ),
       ],
     );
@@ -63,13 +64,13 @@ class AddTen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
-        Text('${ref.watch(ex1CounterProvider)}'),
+        TextWidget('${ref.watch(ex1CounterProvider)}', TextType.smallHeadline),
         const SizedBox(height: 10),
         OutlinedButton(
           onPressed: () {
             ref.read(ex1CounterProvider.notifier).increment(10);
           },
-          child: const Text('Add 10'),
+          child: const TextWidget('Add 10', TextType.titleSmall),
         ),
       ],
     );
@@ -83,13 +84,13 @@ class AddHundred extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
-        Text('${ref.watch(ex1CounterProvider)}'),
+        TextWidget('${ref.watch(ex1CounterProvider)}', TextType.smallHeadline),
         const SizedBox(height: 10),
         OutlinedButton(
           onPressed: () {
             ref.read(ex1CounterProvider.notifier).increment(100);
           },
-          child: const Text('Add 100'),
+          child: const TextWidget('Add 100', TextType.titleSmall),
         ),
       ],
     );

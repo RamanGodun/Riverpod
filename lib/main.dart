@@ -13,12 +13,12 @@ SharedPreferences sharedPreferences(Ref ref) {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final prefs = await SharedPreferences.getInstance();
+  // final prefs = await SharedPreferences.getInstance();
 
   runApp(
-    ProviderScope(
-      overrides: [sharedPreferencesProvider.overrideWithValue(prefs)],
-      child: const MyApp(),
+    const ProviderScope(
+      // overrides: [sharedPreferencesProvider.overrideWithValue(prefs)],
+      child: MyApp(),
     ),
   );
 }
@@ -29,10 +29,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'AsyncNotifierProvider',
+      title: 'Riverpod studding',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 48, 77, 1)),
         useMaterial3: true,
       ),
       home: const MyHomePage(),
