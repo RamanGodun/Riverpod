@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../main.dart';
+import '../../../main.dart';
 
 part 'counter_provider.g.dart';
 

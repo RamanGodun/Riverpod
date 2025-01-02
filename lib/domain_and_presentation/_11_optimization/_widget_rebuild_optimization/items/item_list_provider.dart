@@ -1,6 +1,6 @@
 import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../../data/models/model_4_optimization/item_model.dart';
+import '../../../../data/models/model_4_optimization/item_model.dart';
 
 part 'item_list_provider.g.dart';
 

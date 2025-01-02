@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../widgets/text_widget.dart';
+import '../../../../widgets/text_widget.dart';
 import 'example1_provider.dart';
 
 class Example1Page extends ConsumerWidget {
