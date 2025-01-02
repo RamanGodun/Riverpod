@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../_11_optimization/_provider_scope_and_overlay/pages/counter_provider.dart';
+import 'counter_provider.dart';
 
 class OtherPage extends ConsumerWidget {
   const OtherPage({super.key});
