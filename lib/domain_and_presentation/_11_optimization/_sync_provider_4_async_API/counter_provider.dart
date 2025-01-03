@@ -11,7 +11,6 @@ class Counter extends _$Counter {
     final preferences = ref.watch(sharedPreferencesProvider);
     final currentValue = preferences.getInt('counter') ?? 0;
 
-    // Використовуйте Notifier.listenSelf замість ref.listenSelf
     listenSelf((previous, next) {
       print('previous: $previous, next: $next');
       preferences.setInt('counter', next);

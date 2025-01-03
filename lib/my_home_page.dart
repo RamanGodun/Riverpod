@@ -1,3 +1,14 @@
+import 'package:flutter/material.dart';
+import 'domain_and_presentation/provider_observer/_pages/_1_simple_provider_page.dart';
+import 'domain_and_presentation/provider_observer/_pages/_2_notifier_prov_page.dart';
+import 'domain_and_presentation/provider_observer/_pages/_3_future_prov_page.dart';
+import 'domain_and_presentation/provider_observer/_pages/_4_stream_provider_page.dart';
+import 'domain_and_presentation/provider_observer/_pages/_5_async_notifier_page.dart';
+import 'domain_and_presentation/provider_observer/_pages/_8_change_notifier_page.dart';
+import 'domain_and_presentation/provider_observer/_pages/_7_state_notifier_page.dart';
+import 'domain_and_presentation/provider_observer/_pages/_6_state_provider_page.dart';
+import 'widgets/custom_button.dart';
+
 // used before...
 // import 'domain/_3_stream_provider/ticker_presentation.dart';
 // import 'domain/_4_state_or_change_notifier_provider/todos_presentation.dart';
@@ -26,16 +37,17 @@
 // import '../optimization/_widget_rebuild_optimization/pages/items_page.dart';
 // import '../optimization/sync_provider_4_async_API/other_page.dart';
 // import '../optimization/sync_provider_4_async_API/counter_provider.dart'   as sync_counter;
-
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_project/domain_and_presentation/_11_optimization/_provider_scope_and_overlay/pages/counter_provider.dart';
-import '../widgets/custom_button.dart';
-import 'package:riverpod_project/domain_and_presentation/_11_optimization/_provider_scope_and_overlay/pages/home_paged_4_overlay_optimization.dart';
-import 'domain_and_presentation/_11_optimization/_provider_scope_and_overlay/pages/counter_provider.dart'
-    as overlay_counter;
-import 'domain_and_presentation/_11_optimization/subtree optimization/pages/example1_page.dart';
-import 'domain_and_presentation/_11_optimization/subtree optimization/pages/example2_page.dart';
+// import 'package:flutter_riverpod/flutter_riverpod.dart';
+// import 'package:riverpod_project/domain_and_presentation/_11_optimization/_provider_scope_and_overlay/pages/counter_provider.dart';
+// import '../widgets/custom_button.dart';
+// import 'package:riverpod_project/domain_and_presentation/_11_optimization/_provider_scope_and_overlay/pages/home_paged_4_overlay_optimization.dart';
+// import 'domain_and_presentation/_11_optimization/_provider_scope_and_overlay/pages/counter_provider.dart'
+//     as overlay_counter;
+// import 'domain_and_presentation/_11_optimization/subtree optimization/pages/example1_page.dart';
+// import 'domain_and_presentation/_11_optimization/subtree optimization/pages/example2_page.dart';
+// import 'domain_and_presentation/_riverpod_lints/pages/avoid_man_as_gen_dependency.dart';
+// import 'domain_and_presentation/_riverpod_lints/pages/avoid_public_notifier_properties.dart';
+// import 'domain_and_presentation/_riverpod_lints/pages/provider_parameters.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -50,7 +62,7 @@ class MyHomePage extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.all(20),
           shrinkWrap: true,
-          children: [
+          children: const [
             // CustomButton(
             //   title: 'Counter',
             //   child: CounterPage(),
@@ -157,29 +169,73 @@ class MyHomePage extends StatelessWidget {
             //   child: TodosPage(),
             // )
 
-            const SizedBox(height: 50),
+            // const SizedBox(height: 50),
+            // CustomButton(
+            //   title: 'go to Overlay optimization with 100',
+            //   child: ProviderScope(
+            //     overrides: [
+            //       overlay_counter.counterProvider.overrideWith(
+            //         () => Counter100(),
+            //       )
+            //     ],
+            //     child: const HomePage4OverlayOptimization(),
+            //   ),
+            // ),
+            // const SizedBox(height: 50),
+            // const CustomButton(
+            //   title: 'go to Example1',
+            //   child: Example1Page(),
+            // ),
+            // const SizedBox(height: 50),
+            // const CustomButton(
+            //   title: 'go to Example2',
+            //   child: Example2Page(),
+            // ),
+            // const SizedBox(height: 50),
+            // CustomButton(
+            //   title: 'Provider Parameters',
+            //   child: ProviderParameters(),
+            // ),
+            // CustomButton(
+            //   title: 'Avoid Public Notifier Properties',
+            //   child: AvoidPublicNotifierProperties(),
+            // ),
+            // CustomButton(
+            //   title: 'Avoid Manual Providers as Generated Provider Dependency',
+            //   child: AvoidManAsGenDependency(),
+            // ),
             CustomButton(
-              title: 'go to Overlay optimization with 100',
-              child: ProviderScope(
-                overrides: [
-                  overlay_counter.counterProvider.overrideWith(
-                    () => Counter100(),
-                  )
-                ],
-                child: const HomePage4OverlayOptimization(),
-              ),
+              title: 'Provider',
+              child: ProviderPage(),
             ),
-            const SizedBox(height: 50),
-            const CustomButton(
-              title: 'go to Example1',
-              child: Example1Page(),
+            CustomButton(
+              title: 'NotifierProvider',
+              child: NotifierPage(),
             ),
-            const SizedBox(height: 50),
-            const CustomButton(
-              title: 'go to Example2',
-              child: Example2Page(),
+            CustomButton(
+              title: 'FutureProvider',
+              child: FutureProviderPage(),
             ),
-            const SizedBox(height: 50),
+            CustomButton(
+              title: 'StreamProvider',
+              child: StreamProviderPage(),
+            ),
+            CustomButton(
+              title: 'AsyncNotifierProvider',
+              child: AsyncNotifierPage(),
+            ),
+            CustomButton(
+              title: 'StateProvider',
+              child: StateProviderPage(),
+            ),
+            CustomButton(
+              title: 'StateNotifierProvider',
+              child: StateNotifierPage(),
+            ),
+            CustomButton(
+              title: 'ChangeNotifierProvider',
+              child: ChangeNotifierPage(),
+            ),
           ],
         ),
       ),
