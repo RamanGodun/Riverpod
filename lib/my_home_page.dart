@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'domain_and_presentation/provider_observer/_pages/_1_simple_provider_page.dart';
-import 'domain_and_presentation/provider_observer/_pages/_2_notifier_prov_page.dart';
-import 'domain_and_presentation/provider_observer/_pages/_3_future_prov_page.dart';
-import 'domain_and_presentation/provider_observer/_pages/_4_stream_provider_page.dart';
-import 'domain_and_presentation/provider_observer/_pages/_5_async_notifier_page.dart';
-import 'domain_and_presentation/provider_observer/_pages/_8_change_notifier_page.dart';
-import 'domain_and_presentation/provider_observer/_pages/_7_state_notifier_page.dart';
-import 'domain_and_presentation/provider_observer/_pages/_6_state_provider_page.dart';
+import 'domain_and_presentation/_provider_observer/_pages/_1_simple_provider_page.dart';
+import 'domain_and_presentation/_provider_observer/_pages/_2_notifier_prov_page.dart';
+import 'domain_and_presentation/_provider_observer/_pages/_3_future_prov_page.dart';
+import 'domain_and_presentation/_provider_observer/_pages/_4_stream_provider_page.dart';
+import 'domain_and_presentation/_provider_observer/_pages/_5_async_notifier_page.dart';
+import 'domain_and_presentation/_provider_observer/_pages/_8_change_notifier_page.dart';
+import 'domain_and_presentation/_provider_observer/_pages/_7_state_notifier_page.dart';
+import 'domain_and_presentation/_provider_observer/_pages/_6_state_provider_page.dart';
 import 'widgets/custom_button.dart';
 
 // used before...
