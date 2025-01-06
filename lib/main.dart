@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 import 'my_home_page.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
 // import 'domain_and_presentation/_11_optimization/_sync_provider_4_async_API/shared_pref_provider.dart';
@@ -8,6 +9,7 @@ import 'my_home_page.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // final prefs = await SharedPreferences.getInstance(); //needs for section of optimization ASYNC APIs
+  usePathUrlStrategy();
 
   runApp(
     const ProviderScope(

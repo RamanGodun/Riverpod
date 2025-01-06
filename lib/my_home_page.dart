@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'domain_and_presentation/pagination/infinite_scrolling/pages/products_page.dart';
+import 'domain_and_presentation/_pagination/infinite_scrolling/pages/products_page.dart';
 import 'widgets/custom_button.dart';
 
 // used before...
