@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
-import 'domain_and_presentation/_provider_observer/_pages/_1_simple_provider_page.dart';
-import 'domain_and_presentation/_provider_observer/_pages/_2_notifier_prov_page.dart';
-import 'domain_and_presentation/_provider_observer/_pages/_3_future_prov_page.dart';
-import 'domain_and_presentation/_provider_observer/_pages/_4_stream_provider_page.dart';
-import 'domain_and_presentation/_provider_observer/_pages/_5_async_notifier_page.dart';
-import 'domain_and_presentation/_provider_observer/_pages/_8_change_notifier_page.dart';
-import 'domain_and_presentation/_provider_observer/_pages/_7_state_notifier_page.dart';
-import 'domain_and_presentation/_provider_observer/_pages/_6_state_provider_page.dart';
+import 'domain_and_presentation/pagination/infinite_scrolling/pages/products_page.dart';
 import 'widgets/custom_button.dart';
 
 // used before...
@@ -48,6 +41,15 @@ import 'widgets/custom_button.dart';
 // import 'domain_and_presentation/_riverpod_lints/pages/avoid_man_as_gen_dependency.dart';
 // import 'domain_and_presentation/_riverpod_lints/pages/avoid_public_notifier_properties.dart';
 // import 'domain_and_presentation/_riverpod_lints/pages/provider_parameters.dart';
+// import 'domain_and_presentation/_provider_observer/_pages/_1_simple_provider_page.dart';
+// import 'domain_and_presentation/_provider_observer/_pages/_2_notifier_prov_page.dart';
+// import 'domain_and_presentation/_provider_observer/_pages/_3_future_prov_page.dart';
+// import 'domain_and_presentation/_provider_observer/_pages/_4_stream_provider_page.dart';
+// import 'domain_and_presentation/_provider_observer/_pages/_5_async_notifier_page.dart';
+// import 'domain_and_presentation/_provider_observer/_pages/_8_change_notifier_page.dart';
+// import 'domain_and_presentation/_provider_observer/_pages/_7_state_notifier_page.dart';
+// import 'domain_and_presentation/_provider_observer/_pages/_6_state_provider_page.dart';
+// import 'domain_and_presentation/pagination/number_pagination/pages/products/products_page.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -204,37 +206,42 @@ class MyHomePage extends StatelessWidget {
             //   title: 'Avoid Manual Providers as Generated Provider Dependency',
             //   child: AvoidManAsGenDependency(),
             // ),
+            // CustomButton(
+            //   title: 'Provider',
+            //   child: ProviderPage(),
+            // ),
+            // CustomButton(
+            //   title: 'NotifierProvider',
+            //   child: NotifierPage(),
+            // ),
+            // CustomButton(
+            //   title: 'FutureProvider',
+            //   child: FutureProviderPage(),
+            // ),
+            // CustomButton(
+            //   title: 'StreamProvider',
+            //   child: StreamProviderPage(),
+            // ),
+            // CustomButton(
+            //   title: 'AsyncNotifierProvider',
+            //   child: AsyncNotifierPage(),
+            // ),
+            // CustomButton(
+            //   title: 'StateProvider',
+            //   child: StateProviderPage(),
+            // ),
+            // CustomButton(
+            //   title: 'StateNotifierProvider',
+            //   child: StateNotifierPage(),
+            // ),
+            // CustomButton(
+            //   title: 'ChangeNotifierProvider',
+            //   child: ChangeNotifierPage(),
+            // ),
             CustomButton(
-              title: 'Provider',
-              child: ProviderPage(),
-            ),
-            CustomButton(
-              title: 'NotifierProvider',
-              child: NotifierPage(),
-            ),
-            CustomButton(
-              title: 'FutureProvider',
-              child: FutureProviderPage(),
-            ),
-            CustomButton(
-              title: 'StreamProvider',
-              child: StreamProviderPage(),
-            ),
-            CustomButton(
-              title: 'AsyncNotifierProvider',
-              child: AsyncNotifierPage(),
-            ),
-            CustomButton(
-              title: 'StateProvider',
-              child: StateProviderPage(),
-            ),
-            CustomButton(
-              title: 'StateNotifierProvider',
-              child: StateNotifierPage(),
-            ),
-            CustomButton(
-              title: 'ChangeNotifierProvider',
-              child: ChangeNotifierPage(),
+              title: 'Go to products page',
+              child: ProductsPageWithPagination(),
+              // ProductsPage(),
             ),
           ],
         ),

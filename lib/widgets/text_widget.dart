@@ -4,7 +4,7 @@ import 'package:riverpod_project/data/helpers.dart';
 import '../data/app_constants.dart';
 
 class TextWidget extends ConsumerWidget {
-  final String text;
+  final String? text;
   final TextType? textType;
   final Color? color;
   final TextAlign? alignment;
@@ -32,7 +32,7 @@ class TextWidget extends ConsumerWidget {
     // Reusable text builder that applies custom styles
     Text buildText(TextStyle? baseStyle) {
       return Text(
-        text,
+        text ?? 'No name',
         textAlign: alignment ?? TextAlign.center,
         style: baseStyle?.copyWith(
           color: color ?? baseStyle.color,
