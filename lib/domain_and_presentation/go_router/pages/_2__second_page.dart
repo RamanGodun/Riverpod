@@ -22,14 +22,9 @@ class SecondPage extends StatelessWidget {
               onPressed: () => Helpers.goTo(
                 context,
                 RouteNames.secondDetails,
-                pathParameters: {'id': '1'},
+                pathParameters: {'id': '735'},
                 queryParameters: {'tab': 'info'},
               ),
-              /*
-                GoRouter.of(context).goNamed(
-                  RouteNames.secondDetails,
-                  pathParameters: {'id': '1'}),
-                */
               child: TextWidget(
                 'View Second Details',
                 TextType.button,

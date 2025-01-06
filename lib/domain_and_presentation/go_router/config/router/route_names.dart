@@ -1,5 +1,5 @@
 class RouteNames {
-  static const signin = 'signin';
+  static const signIn = 'signin';
   static const signup = 'signup';
   static const first = 'first';
   static const firstDetails = 'firstDetails';

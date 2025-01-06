@@ -39,6 +39,7 @@ next used WITHOUT GO-ROUTER
     );
 */
     final router = ref.watch(routeProvider);
+
     return MaterialApp.router(
       title: 'GoRouter with Riverpod',
       debugShowCheckedModeBanner: false,

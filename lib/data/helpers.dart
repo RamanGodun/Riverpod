@@ -10,17 +10,37 @@ class Helpers {
   }
   //
 
+/*
   static void goTo(
     BuildContext context,
     String routeName, {
     Map<String, String> pathParameters = const <String, String>{},
     Map<String, dynamic> queryParameters = const <String, dynamic>{},
   }) {
-    return GoRouter.of(context).goNamed(
+    return context.goNamed(
       routeName,
       pathParameters: pathParameters,
       queryParameters: queryParameters,
     );
+  }
+ */
+
+  static void goTo(
+    BuildContext context,
+    String routeName, {
+    Map<String, String> pathParameters = const <String, String>{},
+    Map<String, dynamic> queryParameters = const <String, dynamic>{},
+  }) {
+    try {
+      GoRouter.of(context).goNamed(
+        routeName,
+        pathParameters: pathParameters,
+        queryParameters: queryParameters,
+      );
+    } catch (e) {
+      // Якщо маршрут не знайдено, перенаправляємо на сторінку помилки
+      GoRouter.of(context).go('/unknown');
+    }
   }
 
   static ThemeData getTheme(BuildContext context) {

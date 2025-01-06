@@ -18,7 +18,11 @@ class SigninPage extends ConsumerWidget {
           children: [
             FilledButton(
               onPressed: () => _handleSignIn(ref),
-              child: const TextWidget('Sign IN', TextType.headline),
+              child: TextWidget(
+                'Sign IN',
+                TextType.button,
+                color: Helpers.getColorScheme(context).onPrimary,
+              ),
             ),
             const SizedBox(height: 20.0),
             TextButton(

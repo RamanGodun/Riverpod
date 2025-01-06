@@ -20,11 +20,12 @@ class SignupPage extends ConsumerWidget {
           children: [
             FilledButton(
               onPressed: () => _handleSignUp(ref),
-              child: const TextWidget('Sign UP', TextType.headline),
+              child: TextWidget('Sign UP', TextType.button,
+                  color: Helpers.getColorScheme(context).onPrimary),
             ),
             const SizedBox(height: 20.0),
             TextButton(
-              onPressed: () => Helpers.goTo(context, RouteNames.signin),
+              onPressed: () => Helpers.goTo(context, RouteNames.signIn),
               child: const TextWidget(
                   'Already a member? Sign IN!', TextType.button),
             ),
@@ -49,49 +50,3 @@ class SignupPage extends ConsumerWidget {
     await ref.read(authStateProvider.notifier).setAuthenticate(true);
   }
 }
-
-//   @override
-//   Widget build(BuildContext context, WidgetRef ref) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('Sign UP'),
-//       ),
-//       body: Center(
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             FilledButton(
-//               onPressed: () async {
-//                 await ref
-//                     .read(authStateProvider.notifier)
-//                     .setAuthenticate(true);
-//               },
-//               child: const Text('Sign UP'),
-//             ),
-//             const SizedBox(height: 20.0),
-//             TextButton(
-//               onPressed: () {
-//                 context.goNamed(RouteNames.signin);
-//               },
-//               child: const Text('Already a member? Sign IN!'),
-//             ),
-//             const SizedBox(height: 20.0),
-//             OutlinedButton(
-//               onPressed: () {
-//                 context.goNamed(RouteNames.second);
-//               },
-//               child: const Text('Second'),
-//             ),
-//             const SizedBox(height: 20.0),
-//             OutlinedButton(
-//               onPressed: () {
-//                 context.go('/nowhere');
-//               },
-//               child: const Text('No Where'),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }

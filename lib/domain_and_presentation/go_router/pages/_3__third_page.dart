@@ -30,7 +30,7 @@ class ThirdPage extends ConsumerWidget {
             ),
             const SizedBox(height: 10),
             OutlinedButton(
-              onPressed: () => Helpers.goTo(context, RouteNames.signin),
+              onPressed: () => Helpers.goTo(context, RouteNames.signIn),
               child: const TextWidget('Sign In', TextType.button),
             ),
             const SizedBox(height: 10),
@@ -49,8 +49,11 @@ class ThirdPage extends ConsumerWidget {
     Helpers.goTo(
       context,
       RouteNames.thirdDetails,
-      pathParameters: {'id': '2'},
-      queryParameters: {'firstName': 'John'},
+      pathParameters: {'id': '333'},
+      queryParameters: {
+        // 'firstName': 'Roman',
+        'lastName': 'Godun',
+      },
     );
   }
 
@@ -59,51 +62,3 @@ class ThirdPage extends ConsumerWidget {
     await ref.read(authStateProvider.notifier).setAuthenticate(false);
   }
 }
-
-// class ThirdPage extends ConsumerWidget {
-//   const ThirdPage({super.key});
-
-//   @override
-//   Widget build(BuildContext context, WidgetRef ref) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('Third'),
-//       ),
-//       body: Center(
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: <Widget>[
-//             const Text('Third Page'),
-//             const SizedBox(height: 10),
-//             FilledButton(
-//               onPressed: () {
-//                 GoRouter.of(context).goNamed(
-//                   RouteNames.thirdDetails,
-//                   pathParameters: {'id': '2'},
-//                   queryParameters: {'firstName': 'John'},
-//                 );
-//               },
-//               child: const Text('View Third Details'),
-//             ),
-//             const SizedBox(height: 10),
-//             OutlinedButton(
-//               onPressed: () {
-//                 context.goNamed(RouteNames.signin);
-//               },
-//               child: const Text('Sign In'),
-//             ),
-//             const SizedBox(height: 10),
-//             OutlinedButton(
-//               onPressed: () async {
-//                 await ref
-//                     .read(authStateProvider.notifier)
-//                     .setAuthenticate(false);
-//               },
-//               child: const Text('Sign Out'),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
