@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../../data/helpers.dart';
+import '../../../widgets/custom_button.dart';
 import '../../../widgets/text_widget.dart';
 import '../config/router/route_names.dart';
 
 class PageNotFound extends StatelessWidget {
   final String errMsg;
+
   const PageNotFound({
     super.key,
     required this.errMsg,
@@ -24,9 +25,10 @@ class PageNotFound extends StatelessWidget {
             children: [
               TextWidget(errMsg, TextType.error),
               const SizedBox(height: 10),
-              OutlinedButton(
-                onPressed: () => Helpers.goTo(context, RouteNames.first),
-                child: const TextWidget('Go to First', TextType.button),
+              // Custom Button for navigation to the first page
+              const CustomButtonForGoRouter(
+                title: 'Go to First',
+                routeName: RouteNames.first,
               ),
             ],
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_project/data/helpers.dart';
 
+import '../../../widgets/custom_button.dart';
 import '../../../widgets/text_widget.dart';
 
 class FirstDetailsPage extends StatefulWidget {
@@ -25,12 +25,10 @@ class _FirstDetailsPageState extends State<FirstDetailsPage> {
           children: [
             TextWidget('$counter', TextType.headline),
             const SizedBox(height: 20),
-            FilledButton(
-              onPressed: () => setState(() => counter++),
-              child: TextWidget(
-                'Increment Counter',
-                TextType.button,
-                color: Helpers.getColorScheme(context).onPrimary,
+            CustomButtonForGoRouter(
+              title: 'Increment Counter',
+              voidCallBack: () => setState(
+                () => counter++,
               ),
             ),
           ],

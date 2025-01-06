@@ -49,3 +49,63 @@ class CustomButtonForDialog extends StatelessWidget {
     );
   }
 }
+
+class CustomButtonForGoRouter extends StatelessWidget {
+  const CustomButtonForGoRouter({
+    super.key,
+    required this.title,
+    this.routeName,
+    this.pathParameters,
+    this.queryParameters,
+    this.voidCallBack,
+  });
+
+  final String title;
+  final String? routeName;
+  final Map<String, String>? pathParameters;
+  final Map<String, dynamic>? queryParameters;
+  final VoidCallback? voidCallBack;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 28.0),
+      child: SizedBox(
+        width: double.infinity,
+        child: OutlinedButton(
+          onPressed: () => _buttonOnPressed(context),
+          child: TextWidget(title, TextType.button),
+        ),
+      ),
+    );
+  }
+
+  void _buttonOnPressed(BuildContext context) {
+    (voidCallBack != null)
+        ? voidCallBack!()
+        : (routeName == null)
+            ? debugPrint('Error: routeName is null or empty.')
+            : Helpers.goTo(
+                context,
+                routeName!,
+                pathParameters: pathParameters ?? const {},
+                queryParameters: queryParameters ?? const {},
+              );
+
+    /*
+?alternative way:
+ if (voidCallBack != null) {
+      voidCallBack!();
+    } else if (routeName != null && routeName!.isNotEmpty) {
+      Helpers.goTo(
+        context,
+        routeName!,
+        pathParameters: pathParameters ?? const {},
+        queryParameters: queryParameters ?? const {},
+      );
+    } else {
+      debugPrint('Error: routeName is null or empty.');
+    }
+ */
+  }
+}

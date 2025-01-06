@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../data/helpers.dart';
+import '../../../widgets/custom_button.dart';
 import '../../../widgets/text_widget.dart';
 import '../config/router/auth_state_provider.dart';
 import '../config/router/route_names.dart';
@@ -18,26 +18,28 @@ class SignupPage extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FilledButton(
-              onPressed: () => _handleSignUp(ref),
-              child: TextWidget('Sign UP', TextType.button,
-                  color: Helpers.getColorScheme(context).onPrimary),
+            // Custom Button for Sign Up
+            CustomButtonForGoRouter(
+              title: 'Sign UP',
+              voidCallBack: () => _handleSignUp(ref),
             ),
             const SizedBox(height: 20.0),
-            TextButton(
-              onPressed: () => Helpers.goTo(context, RouteNames.signIn),
-              child: const TextWidget(
-                  'Already a member? Sign IN!', TextType.button),
+            // Custom Button for navigation to Sign In
+            const CustomButtonForGoRouter(
+              title: 'Already a member? Sign IN!',
+              routeName: RouteNames.signIn,
             ),
             const SizedBox(height: 20.0),
-            OutlinedButton(
-              onPressed: () => Helpers.goTo(context, RouteNames.second),
-              child: const TextWidget('Second', TextType.button),
+            // Custom Button for navigation to Second Page
+            const CustomButtonForGoRouter(
+              title: 'Second',
+              routeName: RouteNames.second,
             ),
             const SizedBox(height: 20.0),
-            OutlinedButton(
-              onPressed: () => Helpers.goTo(context, '/nowhere'),
-              child: const TextWidget('No Where', TextType.button),
+            // Custom Button for navigation to an invalid route
+            const CustomButtonForGoRouter(
+              title: 'No Where',
+              routeName: '/nowhere',
             ),
           ],
         ),

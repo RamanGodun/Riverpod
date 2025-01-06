@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../data/helpers.dart';
+import '../../../widgets/custom_button.dart';
 import '../../../widgets/text_widget.dart';
 import '../config/router/route_names.dart';
 
@@ -12,31 +12,23 @@ class SecondPage extends StatelessWidget {
       appBar: AppBar(
         title: const TextWidget('Second', TextType.titleSmall),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const TextWidget('Second Page', TextType.headline),
-            const SizedBox(height: 10),
-            FilledButton(
-              onPressed: () => Helpers.goTo(
-                context,
-                RouteNames.secondDetails,
-                pathParameters: {'id': '735'},
-                queryParameters: {'tab': 'info'},
-              ),
-              child: TextWidget(
-                'View Second Details',
-                TextType.button,
-                color: Helpers.getColorScheme(context).onPrimary,
-              ),
+            TextWidget('Second Page', TextType.smallHeadline),
+            SizedBox(height: 10),
+            CustomButtonForGoRouter(
+              title: 'View Second Details',
+              routeName: RouteNames.secondDetails,
+              pathParameters: {'id': '735'},
+              queryParameters: {'tab': 'info'},
             ),
-            const SizedBox(height: 10),
-            OutlinedButton(
-              onPressed: () => Helpers.goTo(context, '/nowhere'),
-              //  GoRouter.of(context).go('/nowhere'),
-              child: const TextWidget('No Where', TextType.button),
-            )
+            SizedBox(height: 10),
+            CustomButtonForGoRouter(
+              title: 'No Where',
+              routeName: '/nowhere',
+            ),
           ],
         ),
       ),

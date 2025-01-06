@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../data/helpers.dart';
+import '../../../widgets/custom_button.dart';
 import '../../../widgets/text_widget.dart';
 import '../config/router/auth_state_provider.dart';
 import '../config/router/route_names.dart';
@@ -11,29 +11,29 @@ class SigninPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(title: const TextWidget('Sign IN', TextType.titleSmall)),
+      appBar: AppBar(
+        title: const TextWidget('Sign IN', TextType.titleSmall),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FilledButton(
-              onPressed: () => _handleSignIn(ref),
-              child: TextWidget(
-                'Sign IN',
-                TextType.button,
-                color: Helpers.getColorScheme(context).onPrimary,
-              ),
+            // Custom Button for Sign In
+            CustomButtonForGoRouter(
+              title: 'Sign IN',
+              voidCallBack: () => _handleSignIn(ref),
             ),
             const SizedBox(height: 20.0),
-            TextButton(
-              onPressed: () => Helpers.goTo(context, RouteNames.signup),
-              child:
-                  const TextWidget('Not a member? Sign UP!', TextType.button),
+            // Custom Button for navigation to Sign Up
+            const CustomButtonForGoRouter(
+              title: 'Not a member? Sign UP!',
+              routeName: RouteNames.signup,
             ),
             const SizedBox(height: 20.0),
-            OutlinedButton(
-              onPressed: () => Helpers.goTo(context, RouteNames.first),
-              child: const TextWidget('First', TextType.button),
+            // Custom Button for navigation to First Page
+            const CustomButtonForGoRouter(
+              title: 'First',
+              routeName: RouteNames.first,
             ),
           ],
         ),
