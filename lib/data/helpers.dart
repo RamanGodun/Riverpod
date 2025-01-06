@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Helpers {
   //
@@ -8,6 +9,19 @@ class Helpers {
     );
   }
   //
+
+  static void goTo(
+    BuildContext context,
+    String routeName, {
+    Map<String, String> pathParameters = const <String, String>{},
+    Map<String, dynamic> queryParameters = const <String, dynamic>{},
+  }) {
+    return GoRouter.of(context).goNamed(
+      routeName,
+      pathParameters: pathParameters,
+      queryParameters: queryParameters,
+    );
+  }
 
   static ThemeData getTheme(BuildContext context) {
     final theme = Theme.of(context);
@@ -35,6 +49,4 @@ class Helpers {
     final seconds = zeroPaddedTwoDigits(ticks % 60);
     return '$minutes:$seconds';
   }
-
-
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'shared_pref_provider.dart';
+import '../../../data/providers/shared_pref_provider.dart';
 
 class SyncProvider4AsyncAPI extends StatelessWidget {
   const SyncProvider4AsyncAPI({super.key});

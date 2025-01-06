@@ -6,7 +6,7 @@ part of 'shared_pref_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$sharedPreferencesHash() => r'58a71073b242855fafaa934745003c3041f1e57a';
+String _$sharedPreferencesHash() => r'9ce5d3a1d8e34e1852c77b7a602fe3158dd8f0ca';
 
 /// See also [sharedPreferences].
 @ProviderFor(sharedPreferences)
@@ -17,8 +17,8 @@ final sharedPreferencesProvider =
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
       : _$sharedPreferencesHash,
-  dependencies: const <ProviderOrFamily>[],
-  allTransitiveDependencies: const <ProviderOrFamily>{},
+  dependencies: null,
+  allTransitiveDependencies: null,
 );
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
