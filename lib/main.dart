@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'data/providers/shared_pref_provider.dart';
-import 'domain_and_presentation/go_router/config/router/router_provider.dart';
+import 'domain_and_presentation/_go_router/config/router/router_provider.dart';
 // import 'my_home_page.dart';
 // import 'domain_and_presentation/_11_optimization/_sync_provider_4_async_API/shared_pref_provider.dart';
 // import 'domain_and_presentation/_provider_observer/_observer_logger.dart';
