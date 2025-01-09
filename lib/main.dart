@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'data/providers/shared_pref_provider.dart';
-import 'domain_and_presentation/_go_router/config/router/router_provider.dart';
+// import 'domain_and_presentation/_go_router/config/router/router_provider.dart';
+import './domain_and_presentation/firebase_auth/config/router/router_provider.dart';
 // import 'my_home_page.dart';
 // import 'domain_and_presentation/_11_optimization/_sync_provider_4_async_API/shared_pref_provider.dart';
 // import 'domain_and_presentation/_provider_observer/_observer_logger.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  usePathUrlStrategy();
+  // usePathUrlStrategy(); //or use setPathUrlStrategy() for advanced strategy
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
   final prefs = await SharedPreferences.getInstance();
 
   runApp(
@@ -38,7 +41,7 @@ next used WITHOUT GO-ROUTER
       home: const MyHomePage(),
     );
 */
-    final router = ref.watch(routeProvider);
+    final router = ref.watch(routerProvider);
 
     return MaterialApp.router(
       title: 'GoRouter with Riverpod',

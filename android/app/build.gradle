@@ -1,13 +1,20 @@
 plugins {
     id "com.android.application"
+    // START: FlutterFire Configuration
+    id 'com.google.gms.google-services'
+    // END: FlutterFire Configuration
     id "kotlin-android"
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
 }
 
 android {
-    namespace = "com.example.riverpod"
-    compileSdk = flutter.compileSdkVersion
+    namespace = "com.example.riverpod_project"
+    minSdkVersion 23
+    targetSdkVersion flutter.targetSdkVersion
+    versionCode flutter.versionCode.toInteger()
+    multiDexEnabled true
+    compileSdk = 34
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -21,7 +28,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.riverpod"
+        applicationId = "com.example.riverpod_project"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
@@ -42,3 +49,23 @@ android {
 flutter {
     source = "../.."
 }
+
+
+/*
+romangodun@Mac riverpod % keytool -list -v \-alias androiddebugkey -keystore ~/.android/debug.keystore
+Enter keystore password:  
+Alias name: androiddebugkey
+Creation date: 8 лист. 2024 р.
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+Owner: C=US, O=Android, CN=Android Debug
+Issuer: C=US, O=Android, CN=Android Debug
+Serial number: 1
+Valid from: Fri Nov 08 16:10:51 EET 2024 until: Sun Nov 01 16:10:51 EET 2054
+Certificate fingerprints:
+         SHA1: FC:A9:29:84:FE:3A:8E:E1:8F:4D:D2:8B:BB:8C:31:47:31:50:16:BE
+         SHA256: 54:AA:C3:02:6C:13:A0:A1:76:33:54:C3:8C:97:7A:BB:CC:C6:22:74:26:92:27:BB:F9:C4:F4:CF:A8:30:64:44
+Signature algorithm name: SHA256withRSA
+Subject Public Key Algorithm: 2048-bit RSA key
+ */
