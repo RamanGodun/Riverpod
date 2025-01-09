@@ -1,32 +1,13 @@
 {
   "project_info": {
-    "project_number": "499261259777",
-    "project_id": "rivepod-study-project",
-    "storage_bucket": "rivepod-study-project.firebasestorage.app"
+    "project_number": "929918325224",
+    "project_id": "study-project-on-riverpod",
+    "storage_bucket": "study-project-on-riverpod.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:499261259777:android:5e177193183972e694c000",
-        "android_client_info": {
-          "package_name": "com.example.riverpod"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCa4QywMvwhuP_eu79xhVPzgxunw7g45v0"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:499261259777:android:b69820081a35461894c000",
+        "mobilesdk_app_id": "1:929918325224:android:6842cfe55b3dc53e62145d",
         "android_client_info": {
           "package_name": "com.example.riverpod_project"
         }
@@ -34,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCa4QywMvwhuP_eu79xhVPzgxunw7g45v0"
+          "current_key": "AIzaSyDX4Tgg1_5JyNdlnwAgDp6Ehpexp6Khp6I"
         }
       ],
       "services": {

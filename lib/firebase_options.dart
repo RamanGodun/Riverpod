@@ -44,37 +44,47 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCeVrt-413aacV887vuidGwq99qr42nYBU',
-    appId: '1:499261259777:web:6d5fd0891192a04f94c000',
-    messagingSenderId: '499261259777',
-    projectId: 'rivepod-study-project',
-    authDomain: 'rivepod-study-project.firebaseapp.com',
-    storageBucket: 'rivepod-study-project.firebasestorage.app',
+    apiKey: 'AIzaSyBiGztkarZjcmt--BXxDAotvxoZ1uGYtPo',
+    appId: '1:929918325224:web:82ad7221a7e81a8462145d',
+    messagingSenderId: '929918325224',
+    projectId: 'study-project-on-riverpod',
+    authDomain: 'study-project-on-riverpod.firebaseapp.com',
+    storageBucket: 'study-project-on-riverpod.firebasestorage.app',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCa4QywMvwhuP_eu79xhVPzgxunw7g45v0',
-    appId: '1:499261259777:android:b69820081a35461894c000',
-    messagingSenderId: '499261259777',
-    projectId: 'rivepod-study-project',
-    storageBucket: 'rivepod-study-project.firebasestorage.app',
+    apiKey: 'AIzaSyDX4Tgg1_5JyNdlnwAgDp6Ehpexp6Khp6I',
+    appId: '1:929918325224:android:6842cfe55b3dc53e62145d',
+    messagingSenderId: '929918325224',
+    projectId: 'study-project-on-riverpod',
+    storageBucket: 'study-project-on-riverpod.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAhjoK16ds_av2lvOwk9ZE9IV_bKg1Dcb8',
-    appId: '1:499261259777:ios:3f72d1a0763e1fea94c000',
-    messagingSenderId: '499261259777',
-    projectId: 'rivepod-study-project',
-    storageBucket: 'rivepod-study-project.firebasestorage.app',
+    apiKey: 'AIzaSyBnkwrByr5jEIBUSbsw4jMwq0bDx_Bfj5k',
+    appId: '1:929918325224:ios:f0a3df90f9c618d762145d',
+    messagingSenderId: '929918325224',
+    projectId: 'study-project-on-riverpod',
+    storageBucket: 'study-project-on-riverpod.firebasestorage.app',
     iosBundleId: 'com.example.riverpod',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAhjoK16ds_av2lvOwk9ZE9IV_bKg1Dcb8',
-    appId: '1:499261259777:ios:3f72d1a0763e1fea94c000',
-    messagingSenderId: '499261259777',
-    projectId: 'rivepod-study-project',
-    storageBucket: 'rivepod-study-project.firebasestorage.app',
+    apiKey: 'AIzaSyBnkwrByr5jEIBUSbsw4jMwq0bDx_Bfj5k',
+    appId: '1:929918325224:ios:f0a3df90f9c618d762145d',
+    messagingSenderId: '929918325224',
+    projectId: 'study-project-on-riverpod',
+    storageBucket: 'study-project-on-riverpod.firebasestorage.app',
     iosBundleId: 'com.example.riverpod',
   );
 }
+
+/*
+Platform  Firebase App Id
+web       1:929918325224:web:82ad7221a7e81a8462145d
+android   1:929918325224:android:6842cfe55b3dc53e62145d
+ios       1:929918325224:ios:f0a3df90f9c618d762145d
+macos     1:929918325224:ios:f0a3df90f9c618d762145d
+
+
+ */
