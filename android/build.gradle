@@ -1,24 +1,27 @@
 allprojects {
     repositories {
-        google()
-        mavenCentral()
+        google() // Додає репозиторій Google для завантаження залежностей, таких як Firebase
+        mavenCentral() // Додає Maven Central для загальних бібліотек
     }
 }
 
-rootProject.buildDir = "../build"
+rootProject.buildDir = "../build" // Змінює шлях до директорії збірки проекту на рівень вище від кореня
+
 subprojects {
-    project.buildDir = "${rootProject.buildDir}/${project.name}"
+    project.buildDir = "${rootProject.buildDir}/${project.name}" // Встановлює унікальні директорії збірки для кожного підпроєкту
 }
+
 subprojects {
-    project.evaluationDependsOn(":app")
+    project.evaluationDependsOn(":app") // Гарантує, що підпроєкти залежать від основного додатка (`:app`)
 }
 
 tasks.register("clean", Delete) {
-    delete rootProject.buildDir
+    delete rootProject.buildDir // Завдання для очищення директорії збірки
 }
 
 buildscript {
     dependencies {
-        classpath 'com.google.gms:google-services:4.3.15' // Переконайтеся, що це остання версія.
+        // Класпасс для плагіна Google Services, який використовується для інтеграції Firebase
+        classpath 'com.google.gms:google-services:4.3.15' // Переконайтеся, що це остання версія
     }
 }

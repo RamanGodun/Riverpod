@@ -17,9 +17,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await Firebase.initializeApp();
-  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
 
+  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   analytics
       .logEvent(name: 'test_event', parameters: {'test_param': 'test_value'});
   // final prefs = await SharedPreferences.getInstance();

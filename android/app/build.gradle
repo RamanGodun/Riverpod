@@ -1,62 +1,68 @@
 plugins {
     id "com.android.application"
     // START: FlutterFire Configuration
-    id 'com.google.gms.google-services'
+    id 'com.google.gms.google-services' // Додано для інтеграції Firebase
     // END: FlutterFire Configuration
-    id "kotlin-android"
+    id "kotlin-android" // Додано для підтримки Kotlin
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
-    id "dev.flutter.flutter-gradle-plugin"
+    id "dev.flutter.flutter-gradle-plugin" // Основний плагін для Flutter
 }
 
 android {
-    namespace = "com.example.riverpod_project"
+    namespace = "com.example.riverpod_project" // Унікальний простір імен для програми
     // compileSdk = 35
-    compileSdkVersion = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    compileSdkVersion = flutter.compileSdkVersion // Використовує змінну `flutter.compileSdkVersion` з FlutterExtension
+    ndkVersion = flutter.ndkVersion // Використовує NDK версію, задану у FlutterExtension
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8 // Підтримка Java 8 для вихідного коду
+        targetCompatibility = JavaVersion.VERSION_1_8 // Підтримка Java 8 для скомпільованого коду
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = JavaVersion.VERSION_1_8 // Підтримка Kotlin для JVM 1.8
     }
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.riverpod_project"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
-        
+        applicationId = "com.example.riverpod_project" // Унікальний ідентифікатор програми
 
-        minSdkVersion 21
-        targetSdk = flutter.targetSdkVersion
-        // targetSdkVersion 35    
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
-        multiDexEnabled true
+        // Мінімальна версія Android SDK
+        minSdkVersion 21 // Зміни: Встановлено на 21 для підтримки ширшого діапазону пристроїв
+
+        // Цільова версія Android SDK
+        targetSdk = flutter.targetSdkVersion // Використовує `flutter.targetSdkVersion` з FlutterExtension
+
+        // Версія коду і назви програми
+        versionCode = flutter.versionCode // Версія коду, визначена у FlutterExtension
+        versionName = flutter.versionName // Назва версії, визначена у FlutterExtension
+
+        multiDexEnabled true // Додано для підтримки multiDex у випадку великої кількості методів
     }
 
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+            // Використовується дебажний ключ для підпису релізу, щоб `flutter run --release` працював
             signingConfig = signingConfigs.debug
         }
     }
 }
 
-
 dependencies {
+    // Бібліотека для multiDex
     implementation 'com.android.support: multidex: 2.0.1'
-    implementation platform('com.google.firebase:firebase-bom:32.2.3') // Замість цього використовується BOM
-    implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation 'com.google.firebase:firebase-auth-ktx'
-    implementation 'com.google.firebase:firebase-firestore-ktx'
-    implementation 'com.google.firebase:firebase-messaging-ktx'
+
+    // Використання Firebase BOM для синхронізації версій бібліотек Firebase
+    implementation platform('com.google.firebase:firebase-bom:32.2.3') // Додано BOM для зручності управління версіями
+
+    // Окремі залежності Firebase
+    implementation 'com.google.firebase:firebase-analytics-ktx' // Firebase Analytics
+    implementation 'com.google.firebase:firebase-auth-ktx' // Firebase Authentication
+    implementation 'com.google.firebase:firebase-firestore-ktx' // Firebase Firestore
+    implementation 'com.google.firebase:firebase-messaging-ktx' // Firebase Messaging
 }
 
 flutter {
-    source = "../.."
+    source = "../.." // Вказано шлях до Flutter проекту відносно каталогу Android
 }

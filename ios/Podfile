@@ -1,45 +1,62 @@
-# Uncomment this line to define a global platform for your project
+# Встановлює мінімальну версію iOS, яку підтримуватиме проєкт
 platform :ios, '13.0'
 
-# CocoaPods analytics sends network stats synchronously affecting flutter build latency.
+# Вимикає аналітику CocoaPods, щоб зменшити затримки при збірці Flutter
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
+# Визначає конфігурацію збірки для різних режимів (Debug, Profile, Release)
 project 'Runner', {
-  'Debug' => :debug,
-  'Profile' => :release,
-  'Release' => :release,
+  'Debug' => :debug,      # Налаштування для режиму налагодження
+  'Profile' => :release,  # Налаштування для профілювання (подібне до релізу)
+  'Release' => :release   # Налаштування для релізу
 }
 
+# Функція, що знаходить кореневу директорію Flutter SDK
 def flutter_root
   generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'Generated.xcconfig'), __FILE__)
+
+  # Перевіряє, чи існує файл конфігурації Flutter
   unless File.exist?(generated_xcode_build_settings_path)
     raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure flutter pub get is executed first"
   end
 
+  # Знаходить рядок FLUTTER_ROOT у файлі Generated.xcconfig
   File.foreach(generated_xcode_build_settings_path) do |line|
     matches = line.match(/FLUTTER_ROOT\=(.*)/)
     return matches[1].strip if matches
   end
+
+  # Повертає помилку, якщо FLUTTER_ROOT не знайдено
   raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}. Try deleting Generated.xcconfig, then run flutter pub get"
 end
 
+# Підключає скрипт podhelper для налаштування CocoaPods з Flutter
 require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
 
+# Налаштовує CocoaPods для iOS-додатка Flutter
 flutter_ios_podfile_setup
 
+# Визначає основний таргет додатка
 target 'Runner' do
-  use_frameworks!
-  use_modular_headers!
+  use_frameworks! # Використовує dynamic frameworks для бібліотек
+  use_modular_headers! # Підтримка модульних заголовків для сумісності з Flutter
 
+  # Встановлює всі необхідні CocoaPods для Flutter
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+
+  # Додає залежність FirebaseFirestore з вказаним репозиторієм і тегом
   pod 'FirebaseFirestore', :git => 'https://github.com/invertase/firestore-ios-sdk-frameworks.git', :tag => '11.6.0'
+# '11.6.0' взято з файлу podfile.lock ( - Firebase/Firestore (= 11.6.0))
+
+  # Налаштовує таргет для тестів додатка
   target 'RunnerTests' do
-    inherit! :search_paths
+    inherit! :search_paths # Наслідує налаштування пошуку бібліотек від основного таргета
   end
 end
 
+# Налаштування після встановлення CocoaPods
 post_install do |installer|
   installer.pods_project.targets.each do |target|
-    flutter_additional_ios_build_settings(target)
+    flutter_additional_ios_build_settings(target) # Додає специфічні налаштування для Flutter
   end
 end
