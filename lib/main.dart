@@ -7,6 +7,7 @@ import 'package:riverpod_project/firebase_options.dart';
 // import 'data/providers/shared_pref_provider.dart';
 // import 'domain_and_presentation/_go_router/config/router/router_provider.dart';
 import './domain_and_presentation/firebase_auth/config/router/router_provider.dart';
+// import 'domain_and_presentation/_provider_observer/_observer_logger.dart';
 // import 'my_home_page.dart';
 // import 'domain_and_presentation/_11_optimization/_sync_provider_4_async_API/shared_pref_provider.dart';
 // import 'domain_and_presentation/_provider_observer/_observer_logger.dart';
